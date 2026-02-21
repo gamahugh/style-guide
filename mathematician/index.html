@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mathematician — Chalkboard Design System</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+  .swatch {
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .swatch-color { height: 48px; }
+  .swatch-info { padding: 0.5rem 0.65rem; background: var(--surface); }
+  .swatch-info .swatch-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--chalk);
+    margin-bottom: 0.1rem;
+  }
+  .swatch-info .swatch-hex {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--chalk-faint);
+  }
+
+  .font-sample {
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    margin-bottom: 0.75rem;
+  }
+  .font-sample .sample-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--chalk-faint);
+    margin-bottom: 0.75rem;
+  }
+  .font-sample-display {
+    font-family: 'EB Garamond', serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--chalk);
+    line-height: 1.2;
+  }
+  .font-sample-body {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem;
+    color: var(--chalk-dim);
+    font-weight: 400;
+    line-height: 1.8;
+  }
+  .font-sample-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--chalk-dim);
+    letter-spacing: 0.02em;
+  }
+
+  .file-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .file-link:hover { border-color: var(--border-light); }
+  .file-link .file-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  .file-link h4 { margin-bottom: 0.2rem; text-transform: none; letter-spacing: 0; }
+  .file-link p { margin: 0; font-size: 0.85rem; }
+
+  .inline-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    background: var(--surface-2);
+    padding: 0.15em 0.4em;
+    color: var(--yellow);
+  }
+
+  .text-tier-demo {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    margin: 1.5rem 0;
+  }
+  .text-tier-demo .tier {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+  .text-tier-demo .tier + .tier { border-top: 1px solid var(--border); }
+  .text-tier-demo .tier-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--chalk-faint);
+    width: 5.5rem;
+    flex-shrink: 0;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="hero-label">Design System Reference</div>
+  <h1><span>Mathematician</span></h1>
+  <p>A chalkboard-inspired design system with academic serifs, chalk-colored accents, theorem boxes, proof blocks, and the quiet rigor of a mathematics lecture hall.</p>
+  <div class="hero-version">Draft · <a href="template.html" style="color: var(--chalk-faint); text-decoration: underline; text-underline-offset: 3px;">view starter template</a></div>
+</div>
+
+<div class="container">
+
+<!-- ============ QUICK START ============ -->
+<section>
+  <div class="section-num">&sect;0 &mdash; Quick Start</div>
+  <h2>Getting Started</h2>
+  <p>Copy <span class="inline-code">template.html</span> and <span class="inline-code">tokens.css</span> into your project. The template includes every component.</p>
+
+  <div class="card-grid">
+    <a href="template.html" class="file-link">
+      <div class="file-icon">&#x1D4D5;</div>
+      <div>
+        <h4>template.html</h4>
+        <p>Starter document with every component</p>
+      </div>
+    </a>
+    <a href="tokens.css" class="file-link">
+      <div class="file-icon">&#x1D4D2;</div>
+      <div>
+        <h4>tokens.css</h4>
+        <p>Variables, reset, and all component styles</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ COLORS ============ -->
+<section>
+  <div class="section-num">&sect;1 &mdash; Color Palette</div>
+  <h2>Chalkboard Surfaces</h2>
+  <p>A <strong>deep matte green</strong> background evoking a well-used chalkboard. Surfaces are subtly lighter greens.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background: #1a2b1a;"></div><div class="swatch-info"><div class="swatch-name">bg</div><div class="swatch-hex">#1a2b1a</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #1e321e;"></div><div class="swatch-info"><div class="swatch-name">surface</div><div class="swatch-hex">#1e321e</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #243a24;"></div><div class="swatch-info"><div class="swatch-name">surface-2</div><div class="swatch-hex">#243a24</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #2e4c2e;"></div><div class="swatch-info"><div class="swatch-name">border</div><div class="swatch-hex">#2e4c2e</div></div></div>
+  </div>
+
+  <h3>Chalk Hierarchy</h3>
+  <div class="text-tier-demo">
+    <div class="tier">
+      <div class="tier-label">--chalk</div>
+      <div style="color: var(--chalk); font-weight: 500;">Primary &mdash; headings, emphasis, theorem statements</div>
+    </div>
+    <div class="tier">
+      <div class="tier-label">--chalk-dim</div>
+      <div style="color: var(--chalk-dim);">Dim &mdash; body paragraphs, proof text, descriptions</div>
+    </div>
+    <div class="tier">
+      <div class="tier-label">--chalk-faint</div>
+      <div style="color: var(--chalk-faint);">Faint &mdash; labels, section numbers, captions</div>
+    </div>
+  </div>
+
+  <h3>Chalk Colors</h3>
+  <p>Five accent colors named for their role in mathematical writing. Each has full, dim, and fill (7% opacity) variants.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background: #f0d060;"></div><div class="swatch-info"><div class="swatch-name">yellow</div><div class="swatch-hex">#f0d060</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #7ab8e0;"></div><div class="swatch-info"><div class="swatch-name">blue</div><div class="swatch-hex">#7ab8e0</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #e88898;"></div><div class="swatch-info"><div class="swatch-name">pink</div><div class="swatch-hex">#e88898</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #80c898;"></div><div class="swatch-info"><div class="swatch-name">green</div><div class="swatch-hex">#80c898</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #e0a060;"></div><div class="swatch-info"><div class="swatch-name">orange</div><div class="swatch-hex">#e0a060</div></div></div>
+  </div>
+
+  <p>Tags with chalk colors:
+    <span class="tag t-yellow">theorem</span>
+    <span class="tag t-blue">lemma</span>
+    <span class="tag t-pink">definition</span>
+    <span class="tag t-green">corollary</span>
+    <span class="tag t-orange">example</span>
+  </p>
+</section>
+
+<!-- ============ TYPOGRAPHY ============ -->
+<section>
+  <div class="section-num">&sect;2 &mdash; Typography</div>
+  <h2>Font Stack</h2>
+  <p>Two serifs and a monospace. <strong>EB Garamond for display</strong> (close to LaTeX&rsquo;s Computer Modern), <strong>Source Serif 4 for body</strong>, and <strong>JetBrains Mono for code</strong>.</p>
+
+  <div class="font-sample">
+    <div class="sample-label">EB Garamond &mdash; Headings, theorem labels, table headers, tags</div>
+    <div class="font-sample-display">The quick brown fox jumps over the lazy dog</div>
+  </div>
+
+  <div class="font-sample">
+    <div class="sample-label">Source Serif 4 &mdash; Body text, proofs, descriptions (weights 300&ndash;600)</div>
+    <div class="font-sample-body">The quick brown fox jumps over the lazy dog. Body text uses weight 400 by default. <strong>Strong text uses weight 600</strong> and the full chalk color for emphasis. <em>Italic text</em> is used for mathematical terms and variables.</div>
+  </div>
+
+  <div class="font-sample">
+    <div class="sample-label">JetBrains Mono &mdash; Labels, code, hero label</div>
+    <div class="font-sample-mono">&sect;1 &middot; Draft &middot; February 2026 &middot; f(x) = x^2 + 1</div>
+  </div>
+
+  <h3>Type Scale</h3>
+  <table class="info-table">
+    <thead>
+      <tr><th>Element</th><th>Family</th><th>Size</th><th>Weight</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Hero h1</td><td>EB Garamond</td><td>clamp(2.8rem, 7vw, 4.8rem)</td><td>500, italic</td></tr>
+      <tr><td>Section h2</td><td>EB Garamond</td><td>2rem</td><td>500</td></tr>
+      <tr><td>Subsection h3</td><td>EB Garamond</td><td>1.35rem</td><td>500, italic</td></tr>
+      <tr><td>Card title h4</td><td>EB Garamond</td><td>1rem</td><td>600</td></tr>
+      <tr><td>Body paragraph</td><td>Source Serif 4</td><td>0.95rem</td><td>400</td></tr>
+      <tr><td>Theorem body</td><td>Source Serif 4</td><td>0.92rem</td><td>400</td></tr>
+      <tr><td>Section label</td><td>EB Garamond</td><td>0.9rem</td><td>400, italic</td></tr>
+      <tr><td>Tag</td><td>EB Garamond</td><td>0.75rem</td><td>400, italic</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>N.B.</strong> The hero h1 is italic. Subsection h3 headings are italic and yellow. This gives them a hand-written, chalked quality distinct from the upright h2 headings.</p>
+  </div>
+</section>
+
+<!-- ============ LAYOUT ============ -->
+<section>
+  <div class="section-num">&sect;3 &mdash; Layout</div>
+  <h2>Structure</h2>
+
+  <div class="card-grid">
+    <div class="chalk-card yellow">
+      <div class="card-label">Layout</div>
+      <h4>Container</h4>
+      <p>Narrow 760px max-width, centered. Tighter than the other systems &mdash; academic papers are narrow.</p>
+    </div>
+    <div class="chalk-card blue">
+      <div class="card-label">Layout</div>
+      <h4>Sections</h4>
+      <p>4.5rem vertical padding. Sections separated by centered asterism (* * *) ornaments.</p>
+    </div>
+    <div class="chalk-card pink">
+      <div class="card-label">Layout</div>
+      <h4>Section Labels</h4>
+      <p>Section symbol (&sect;) numbering in italic serif: &sect;1, &sect;2, etc.</p>
+    </div>
+    <div class="chalk-card green">
+      <div class="card-label">Layout</div>
+      <h4>Line Height</h4>
+      <p>Body line-height at 1.8 &mdash; generous for readability in long-form mathematical writing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THEOREM COMPONENTS ============ -->
+<section>
+  <div class="section-num">&sect;4 &mdash; Components</div>
+  <h2>Theorem Boxes</h2>
+  <p>The signature component. Six variants for different types of mathematical statements, each with a colored left border.</p>
+
+  <div class="theorem">
+    <div class="theorem-head">Theorem 1 (Euler)</div>
+    <p>For any convex polyhedron, <em>V</em> &minus; <em>E</em> + <em>F</em> = 2, where <em>V</em>, <em>E</em>, and <em>F</em> are the numbers of vertices, edges, and faces.</p>
+  </div>
+
+  <div class="lemma">
+    <div class="lemma-head">Lemma 1</div>
+    <p>Supporting results. Blue border. State concisely.</p>
+  </div>
+
+  <div class="definition">
+    <div class="definition-head">Definition 1</div>
+    <p>A <em>convex polyhedron</em> is a three-dimensional solid with flat polygonal faces, straight edges, and sharp corners, where the line segment between any two points on the surface lies inside the solid.</p>
+  </div>
+
+  <div class="corollary">
+    <div class="corollary-head">Corollary 1</div>
+    <p>Direct consequences of theorems. Green border.</p>
+  </div>
+
+  <div class="example">
+    <div class="example-head">Example 1</div>
+    <p>A cube has <em>V</em> = 8, <em>E</em> = 12, <em>F</em> = 6. Indeed, 8 &minus; 12 + 6 = 2. &#10003;</p>
+  </div>
+
+  <div class="remark">
+    <div class="remark-head">Remark</div>
+    <p>The formula extends to any simply connected polytope. Non-simply connected surfaces require a generalization involving the Euler characteristic.</p>
+  </div>
+
+  <h2>Proof Block</h2>
+  <p>Indented with a thin left border. Opens with italic &ldquo;Proof.&rdquo; and closes with the QED symbol (&#8718;).</p>
+
+  <div class="proof">
+    <div class="proof-head">Proof.</div>
+    <p>We proceed by induction on the number of faces. The base case is trivial. For the inductive step, remove a face and observe that the relation is preserved&hellip;</p>
+    <p class="qed">&#8718;</p>
+  </div>
+
+  <h2>Equation Display</h2>
+  <p>Centered, with an optional right-aligned equation number.</p>
+
+  <div class="equation">
+    <em>e</em><sup><em>i&pi;</em></sup> + 1 = 0
+    <span class="eq-num">(1)</span>
+  </div>
+
+  <div class="equation">
+    &int;<sub>0</sub><sup>&infin;</sup> <em>e</em><sup>&minus;<em>x</em>&sup2;</sup> d<em>x</em> = &frac12;&radic;<span style="text-decoration: overline;">&pi;</span>
+    <span class="eq-num">(2)</span>
+  </div>
+
+  <h2>Chalk Cards</h2>
+  <div class="card-grid">
+    <div class="chalk-card yellow">
+      <div class="card-label">yellow</div>
+      <h4>.chalk-card.yellow</h4>
+      <p>Yellow chalk top bar. Theorems, primary results.</p>
+    </div>
+    <div class="chalk-card blue">
+      <div class="card-label">blue</div>
+      <h4>.chalk-card.blue</h4>
+      <p>Blue chalk. Lemmas, supporting results.</p>
+    </div>
+    <div class="chalk-card pink">
+      <div class="card-label">pink</div>
+      <h4>.chalk-card.pink</h4>
+      <p>Pink chalk. Definitions.</p>
+    </div>
+    <div class="chalk-card green">
+      <div class="card-label">green</div>
+      <h4>.chalk-card.green</h4>
+      <p>Green chalk. Corollaries.</p>
+    </div>
+  </div>
+
+  <h2>Pipeline</h2>
+  <p>Horizontal stages with roman numeral labels.</p>
+
+  <div class="pipeline">
+    <div class="pipe-stage s-yellow">
+      <div class="pipe-num">i.</div>
+      <div class="pipe-name">Axioms</div>
+      <div class="pipe-desc">.s-yellow</div>
+    </div>
+    <div class="pipe-stage s-blue">
+      <div class="pipe-num">ii.</div>
+      <div class="pipe-name">Lemmas</div>
+      <div class="pipe-desc">.s-blue</div>
+    </div>
+    <div class="pipe-stage s-pink">
+      <div class="pipe-num">iii.</div>
+      <div class="pipe-name">Theorems</div>
+      <div class="pipe-desc">.s-pink</div>
+    </div>
+    <div class="pipe-stage s-green">
+      <div class="pipe-num">iv.</div>
+      <div class="pipe-name">Corollaries</div>
+      <div class="pipe-desc">.s-green</div>
+    </div>
+  </div>
+
+  <h2>Numbered Propositions</h2>
+  <p>Auto-numbered via CSS counters. No manual numbering required.</p>
+
+  <div class="prop-list">
+    <div class="prop-item">
+      <div>
+        <h4>Proposition</h4>
+        <p>Items separated by horizontal rules. Numbers are generated automatically.</p>
+      </div>
+    </div>
+    <div class="prop-item">
+      <div>
+        <h4>Proposition</h4>
+        <p>Italic h4 titles match the mathematical convention for proposition names.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Callout (Nota Bene)</h2>
+  <div class="callout">
+    <p><strong>N.B.</strong> The entire callout is italic. Strong text inside appears upright and in full chalk white. Use for important asides.</p>
+  </div>
+
+  <h2>Margin Note</h2>
+  <div class="margin-note">A brief supplementary remark &mdash; quieter than a callout, set apart by a thin left border and faint italic text.</div>
+
+  <h2>Diagram Container</h2>
+  <div class="diagram-wrap">
+    <div class="diagram-label">Figure 1. Example</div>
+    <svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;height:auto;margin:0 auto;display:block;">
+      <text x="50" y="55" text-anchor="middle" fill="#e8e4d4" font-size="20" font-style="italic">X</text>
+      <text x="200" y="55" text-anchor="middle" fill="#e8e4d4" font-size="20" font-style="italic">Y</text>
+      <text x="350" y="55" text-anchor="middle" fill="#e8e4d4" font-size="20" font-style="italic">Z</text>
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#a8a492"/></marker>
+      </defs>
+      <line x1="72" y1="48" x2="172" y2="48" stroke="#a8a492" stroke-width="1" marker-end="url(#arr)"/>
+      <text x="122" y="40" text-anchor="middle" fill="#f0d060" font-size="14" font-style="italic">f</text>
+      <line x1="222" y1="48" x2="322" y2="48" stroke="#a8a492" stroke-width="1" marker-end="url(#arr)"/>
+      <text x="272" y="40" text-anchor="middle" fill="#f0d060" font-size="14" font-style="italic">g</text>
+    </svg>
+    <div class="diagram-caption">Figure 1. Composition <em>g</em> &#x2218; <em>f</em> : <em>X</em> &rarr; <em>Z</em>.</div>
+  </div>
+
+  <h2>Table</h2>
+  <table class="info-table">
+    <thead>
+      <tr><th>Component</th><th>Class</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>.theorem</td><td>.theorem-head</td><td>Yellow border, main results</td></tr>
+      <tr><td>.lemma</td><td>.lemma-head</td><td>Blue border, supporting</td></tr>
+      <tr><td>.definition</td><td>.definition-head</td><td>Pink border, terms</td></tr>
+      <tr><td>.proof</td><td>.proof-head, .qed</td><td>Left-bordered indent + &#8718;</td></tr>
+      <tr><td>.equation</td><td>.eq-num</td><td>Centered display with numbering</td></tr>
+      <tr><td>.chalk-card</td><td>.yellow .blue .pink .green</td><td>Color sets top bar</td></tr>
+      <tr><td>.tag</td><td>.t-yellow .t-blue etc.</td><td>Italic serif, underlined</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ KEY PATTERNS ============ -->
+<section>
+  <div class="section-num">&sect;5 &mdash; Design Principles</div>
+  <h2>Key Patterns</h2>
+
+  <div class="prop-list">
+    <div class="prop-item">
+      <div>
+        <h4>Chalkboard Green</h4>
+        <p>Deep matte green backgrounds (#1a2b1a) with warm off-white chalk text (#e8e4d4). Not black &mdash; green, like a real lecture hall chalkboard.</p>
+      </div>
+    </div>
+    <div class="prop-item">
+      <div>
+        <h4>Academic Serif Typography</h4>
+        <p>EB Garamond (close to Computer Modern) for display, Source Serif 4 for body. Both serifs, both deeply academic. Heavy use of italics for emphasis and variable names.</p>
+      </div>
+    </div>
+    <div class="prop-item">
+      <div>
+        <h4>Theorem&ndash;Proof Structure</h4>
+        <p>The core component pattern: colored theorem boxes (theorem, lemma, definition, corollary, example, remark) followed by indented proof blocks ending with QED (&#8718;).</p>
+      </div>
+    </div>
+    <div class="prop-item">
+      <div>
+        <h4>Chalk Accent Colors</h4>
+        <p>Five muted, warm accent colors that read like actual chalk: yellow, blue, pink, green, orange. Each maps to a mathematical statement type.</p>
+      </div>
+    </div>
+    <div class="prop-item">
+      <div>
+        <h4>Narrow Column, Generous Leading</h4>
+        <p>760px container (narrower than the other systems) with 1.8 line-height. Mathematical text needs room to breathe.</p>
+      </div>
+    </div>
+    <div class="prop-item">
+      <div>
+        <h4>Ornamental Section Breaks</h4>
+        <p>Sections separated by centered asterisms (* * *) rather than horizontal rules or solid borders. A typographic convention from academic publishing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <p>Mathematician &middot; Draft &middot; Q.E.D.</p>
+  </div>
+</footer>
+
+</body>
+</html>

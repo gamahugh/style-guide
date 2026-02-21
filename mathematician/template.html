@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document Title</title>
+<link rel="stylesheet" href="tokens.css">
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="hero-label">Subject Area</div>
+  <h1>Document <span>Title</span></h1>
+  <p>A brief description or abstract of the document. State the central thesis or purpose in one or two sentences.</p>
+  <div class="hero-version">Draft · February 2026</div>
+</div>
+
+<!-- ============ SECTION ============ -->
+<div class="container">
+<section>
+  <div class="section-num">&sect;1 &mdash; Section Name</div>
+  <h2>Section Heading</h2>
+  <p>Body text goes here. Use <strong>strong tags</strong> for emphasis and <em>italic tags</em> for mathematical terms on first use. The body font is a readable serif that pairs naturally with the display headings.</p>
+
+  <h3>Subsection Heading</h3>
+  <p>Subsections use italic headings in yellow chalk. Use them to break longer sections into logical parts.</p>
+
+  <!-- Theorem -->
+  <div class="theorem">
+    <div class="theorem-head">Theorem 1 (Name)</div>
+    <p>State the theorem here. Use <em>emphasis</em> for variables and key terms. The yellow left border signals a theorem.</p>
+  </div>
+
+  <!-- Proof -->
+  <div class="proof">
+    <div class="proof-head">Proof.</div>
+    <p>Write the proof body here. Proofs are indented with a subtle left border. Keep the reasoning clear and sequential.</p>
+    <p class="qed">&#8718;</p>
+  </div>
+
+  <!-- Definition -->
+  <div class="definition">
+    <div class="definition-head">Definition 1</div>
+    <p>A <em>defined term</em> is a concept given precise meaning. Definitions use a pink left border.</p>
+  </div>
+
+  <!-- Lemma -->
+  <div class="lemma">
+    <div class="lemma-head">Lemma 1</div>
+    <p>Supporting results use a blue left border. State the lemma concisely.</p>
+  </div>
+
+  <!-- Corollary -->
+  <div class="corollary">
+    <div class="corollary-head">Corollary 1</div>
+    <p>Direct consequences of a theorem. Green left border.</p>
+  </div>
+
+  <!-- Example -->
+  <div class="example">
+    <div class="example-head">Example 1</div>
+    <p>Concrete illustrations use an orange left border. Work through a specific case to clarify the preceding theory.</p>
+  </div>
+
+  <!-- Remark -->
+  <div class="remark">
+    <div class="remark-head">Remark</div>
+    <p>Informal commentary or side observations. Gray left border.</p>
+  </div>
+
+  <!-- Equation -->
+  <div class="equation">
+    <em>f</em>(<em>x</em>) = <em>a</em><sub>0</sub> + &sum;<sub><em>n</em>=1</sub><sup>&infin;</sup> (<em>a<sub>n</sub></em> cos <em>nx</em> + <em>b<sub>n</sub></em> sin <em>nx</em>)
+    <span class="eq-num">(1)</span>
+  </div>
+
+  <!-- Callout -->
+  <div class="callout">
+    <p><strong>N.B.</strong> Callouts are used for important notes. The strong tag inside renders in full chalk white.</p>
+  </div>
+
+  <!-- Margin note -->
+  <div class="margin-note">This is a margin note &mdash; a brief aside that supplements the main text without interrupting the flow.</div>
+</section>
+
+<!-- ============ CARDS ============ -->
+<section>
+  <div class="section-num">&sect;2 &mdash; Cards</div>
+  <h2>Chalk Cards</h2>
+  <p>Two-column grid for listing related items. Use chalk color classes for the top accent bar.</p>
+
+  <div class="card-grid">
+    <div class="chalk-card yellow">
+      <div class="card-label">Theorem</div>
+      <h4>Card Title</h4>
+      <p>Yellow accent bar. Use class <code>yellow</code> on the card.</p>
+    </div>
+    <div class="chalk-card blue">
+      <div class="card-label">Lemma</div>
+      <h4>Card Title</h4>
+      <p>Blue accent bar.</p>
+    </div>
+    <div class="chalk-card pink">
+      <div class="card-label">Definition</div>
+      <h4>Card Title</h4>
+      <p>Pink accent bar.</p>
+    </div>
+    <div class="chalk-card green">
+      <div class="card-label">Corollary</div>
+      <h4>Card Title</h4>
+      <p>Green accent bar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PIPELINE ============ -->
+<section>
+  <div class="section-num">&sect;3 &mdash; Process</div>
+  <h2>Pipeline Stages</h2>
+
+  <div class="pipeline">
+    <div class="pipe-stage s-yellow">
+      <div class="pipe-num">i.</div>
+      <div class="pipe-name">Conjecture</div>
+      <div class="pipe-desc">Propose</div>
+    </div>
+    <div class="pipe-stage s-blue">
+      <div class="pipe-num">ii.</div>
+      <div class="pipe-name">Investigate</div>
+      <div class="pipe-desc">Explore</div>
+    </div>
+    <div class="pipe-stage s-pink">
+      <div class="pipe-num">iii.</div>
+      <div class="pipe-name">Formalize</div>
+      <div class="pipe-desc">Define</div>
+    </div>
+    <div class="pipe-stage s-green">
+      <div class="pipe-num">iv.</div>
+      <div class="pipe-name">Prove</div>
+      <div class="pipe-desc">Verify</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROPOSITIONS ============ -->
+<section>
+  <div class="section-num">&sect;4 &mdash; Propositions</div>
+  <h2>Numbered Propositions</h2>
+  <p>Auto-numbered list items using CSS counters.</p>
+
+  <div class="prop-list">
+    <div class="prop-item">
+      <div>
+        <h4>Proposition Title</h4>
+        <p>Description of the proposition. Numbers are generated automatically via CSS counter.</p>
+      </div>
+    </div>
+    <div class="prop-item">
+      <div>
+        <h4>Proposition Title</h4>
+        <p>Description of the proposition.</p>
+      </div>
+    </div>
+    <div class="prop-item">
+      <div>
+        <h4>Proposition Title</h4>
+        <p>Description of the proposition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TABLE ============ -->
+<section>
+  <div class="section-num">&sect;5 &mdash; Reference</div>
+  <h2>Data Table</h2>
+
+  <table class="info-table">
+    <thead>
+      <tr><th>Symbol</th><th>Name</th><th>Domain</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>&Sigma;</td><td>Summation</td><td>Discrete</td></tr>
+      <tr><td>&int;</td><td>Integral</td><td>Continuous</td></tr>
+      <tr><td>&nabla;</td><td>Gradient</td><td>Vector fields</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Tags</h3>
+  <p>
+    <span class="tag t-yellow">theorem</span>
+    <span class="tag t-blue">lemma</span>
+    <span class="tag t-pink">definition</span>
+    <span class="tag t-green">corollary</span>
+    <span class="tag t-orange">example</span>
+  </p>
+</section>
+
+<!-- ============ DIAGRAM ============ -->
+<section>
+  <div class="section-num">&sect;6 &mdash; Figures</div>
+  <h2>Diagram Container</h2>
+
+  <div class="diagram-wrap">
+    <div class="diagram-label">Figure 1. Commutative diagram</div>
+    <svg viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:500px;height:auto;margin:0 auto;display:block;">
+      <text x="50" y="45" text-anchor="middle" fill="#e8e4d4" font-size="22" font-style="italic">A</text>
+      <text x="250" y="45" text-anchor="middle" fill="#e8e4d4" font-size="22" font-style="italic">B</text>
+      <text x="50" y="155" text-anchor="middle" fill="#e8e4d4" font-size="22" font-style="italic">C</text>
+      <text x="250" y="155" text-anchor="middle" fill="#e8e4d4" font-size="22" font-style="italic">D</text>
+
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#a8a492"/></marker>
+      </defs>
+
+      <line x1="75" y1="38" x2="220" y2="38" stroke="#a8a492" stroke-width="1" marker-end="url(#arr)"/>
+      <text x="148" y="28" text-anchor="middle" fill="#f0d060" font-size="14" font-style="italic">f</text>
+
+      <line x1="75" y1="148" x2="220" y2="148" stroke="#a8a492" stroke-width="1" marker-end="url(#arr)"/>
+      <text x="148" y="170" text-anchor="middle" fill="#f0d060" font-size="14" font-style="italic">h</text>
+
+      <line x1="50" y1="60" x2="50" y2="125" stroke="#a8a492" stroke-width="1" marker-end="url(#arr)"/>
+      <text x="35" y="95" text-anchor="middle" fill="#7ab8e0" font-size="14" font-style="italic">g</text>
+
+      <line x1="250" y1="60" x2="250" y2="125" stroke="#a8a492" stroke-width="1" marker-end="url(#arr)"/>
+      <text x="265" y="95" text-anchor="middle" fill="#7ab8e0" font-size="14" font-style="italic">k</text>
+    </svg>
+    <div class="diagram-caption">Figure 1. The square commutes if <em>k</em> &compfn; <em>f</em> = <em>h</em> &compfn; <em>g</em>.</div>
+  </div>
+</section>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <p>Document Title &middot; Draft &middot; February 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>

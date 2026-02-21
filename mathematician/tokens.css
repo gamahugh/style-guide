@@ -1,0 +1,676 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ==============================
+   Mathematician — Design Tokens
+   ============================== */
+
+:root {
+  /* Chalkboard */
+  --bg: #1a2b1a;
+  --surface: #1e321e;
+  --surface-2: #243a24;
+  --border: #2e4c2e;
+  --border-light: #3a5e3a;
+
+  /* Chalk */
+  --chalk: #e8e4d4;
+  --chalk-dim: #a8a492;
+  --chalk-faint: #6a7a6a;
+
+  /* Chalk accents */
+  --yellow: #f0d060;
+  --yellow-dim: #8a7830;
+  --yellow-fill: rgba(240, 208, 96, 0.07);
+
+  --blue: #7ab8e0;
+  --blue-dim: #3a6a84;
+  --blue-fill: rgba(122, 184, 224, 0.07);
+
+  --pink: #e88898;
+  --pink-dim: #844a52;
+  --pink-fill: rgba(232, 136, 152, 0.07);
+
+  --green: #80c898;
+  --green-dim: #3a6a48;
+  --green-fill: rgba(128, 200, 152, 0.07);
+
+  --orange: #e0a060;
+  --orange-dim: #7a5a2a;
+  --orange-fill: rgba(224, 160, 96, 0.07);
+}
+
+/* ==============================
+   Global Reset & Defaults
+   ============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--chalk);
+  font-family: 'Source Serif 4', 'Georgia', serif;
+  font-weight: 400;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+/* ==============================
+   Typography
+   ============================== */
+
+h1, h2, h3 {
+  font-family: 'EB Garamond', 'Georgia', serif;
+  font-weight: 500;
+  color: var(--chalk);
+}
+
+h1 {
+  font-size: clamp(2.8rem, 7vw, 4.8rem);
+  line-height: 1.1;
+  font-style: italic;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+  margin-top: 2.5rem;
+  font-style: italic;
+  color: var(--yellow);
+}
+
+h4 {
+  font-family: 'EB Garamond', 'Georgia', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--chalk);
+}
+
+p {
+  color: var(--chalk-dim);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+p strong {
+  color: var(--chalk);
+  font-weight: 600;
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* ==============================
+   Layout
+   ============================== */
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 4.5rem 0;
+  position: relative;
+}
+
+section + section::before {
+  content: '* * *';
+  display: block;
+  text-align: center;
+  color: var(--chalk-faint);
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  letter-spacing: 0.5em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+/* ==============================
+   Labels
+   ============================== */
+
+.section-num {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--chalk-faint);
+  margin-bottom: 0.5rem;
+}
+
+.hero-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--chalk-faint);
+  margin-bottom: 2rem;
+}
+
+.diagram-label {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--chalk-faint);
+  margin-bottom: 1rem;
+}
+
+/* ==============================
+   Hero
+   ============================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(240, 208, 96, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero h1 {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.hero h1 span {
+  color: var(--yellow);
+  font-style: normal;
+}
+
+.hero p {
+  max-width: 520px;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--chalk-dim);
+  position: relative;
+}
+
+.hero-version {
+  margin-top: 3rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--chalk-faint);
+  letter-spacing: 0.1em;
+  position: relative;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1, .hero p, .hero-label, .hero-version {
+  animation: fadeUp 0.8s ease-out both;
+}
+.hero-label { animation-delay: 0s; }
+.hero h1 { animation-delay: 0.15s; }
+.hero p { animation-delay: 0.3s; }
+.hero-version { animation-delay: 0.45s; }
+
+/* ==============================
+   Theorem Boxes
+   ============================== */
+
+.theorem,
+.lemma,
+.definition,
+.corollary,
+.example,
+.remark {
+  margin: 2rem 0;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  position: relative;
+}
+
+.theorem     { border-left: 3px solid var(--yellow); }
+.lemma       { border-left: 3px solid var(--blue); }
+.definition  { border-left: 3px solid var(--pink); }
+.corollary   { border-left: 3px solid var(--green); }
+.example     { border-left: 3px solid var(--orange); }
+.remark      { border-left: 3px solid var(--chalk-faint); }
+
+.theorem-head,
+.lemma-head,
+.definition-head,
+.corollary-head,
+.example-head,
+.remark-head {
+  font-family: 'EB Garamond', serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+}
+
+.theorem .theorem-head       { color: var(--yellow); }
+.lemma .lemma-head           { color: var(--blue); }
+.definition .definition-head { color: var(--pink); }
+.corollary .corollary-head   { color: var(--green); }
+.example .example-head       { color: var(--orange); }
+.remark .remark-head         { color: var(--chalk-faint); }
+
+.theorem p,
+.lemma p,
+.definition p,
+.corollary p,
+.example p,
+.remark p {
+  font-size: 0.92rem;
+  color: var(--chalk-dim);
+  margin-bottom: 0;
+  line-height: 1.8;
+}
+
+.theorem p em,
+.lemma p em,
+.definition p em {
+  color: var(--chalk);
+}
+
+/* ==============================
+   Proof Block
+   ============================== */
+
+.proof {
+  margin: 2rem 0;
+  padding: 0 0 0 1.75rem;
+  border-left: 1px solid var(--border-light);
+}
+
+.proof-head {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--chalk);
+  margin-bottom: 0.5rem;
+}
+
+.proof p {
+  font-size: 0.92rem;
+  color: var(--chalk-dim);
+  line-height: 1.8;
+}
+
+.proof .qed {
+  text-align: right;
+  color: var(--chalk);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* ==============================
+   Equation Display
+   ============================== */
+
+.equation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  margin: 2rem 0;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--chalk);
+  position: relative;
+}
+
+.equation .eq-num {
+  position: absolute;
+  right: 0;
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.85rem;
+  font-style: normal;
+  color: var(--chalk-faint);
+}
+
+/* ==============================
+   Cards (2-column grid)
+   ============================== */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 640px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+.chalk-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  position: relative;
+}
+
+.chalk-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+
+.chalk-card.yellow::before { background: var(--yellow); }
+.chalk-card.blue::before   { background: var(--blue); }
+.chalk-card.pink::before   { background: var(--pink); }
+.chalk-card.green::before  { background: var(--green); }
+.chalk-card.orange::before { background: var(--orange); }
+
+.chalk-card .card-label {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--chalk-faint);
+  margin-bottom: 0.5rem;
+}
+
+.chalk-card h4 { margin-bottom: 0.4rem; }
+
+.chalk-card p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--chalk-dim);
+  margin-bottom: 0;
+}
+
+/* ==============================
+   Pipeline
+   ============================== */
+
+.pipeline {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+.pipe-stage {
+  flex: 1;
+  min-width: 130px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.pipe-stage + .pipe-stage { border-left: none; }
+
+.pipe-stage::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+
+.pipe-stage .pipe-num {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--chalk-faint);
+  margin-bottom: 0.25rem;
+}
+
+.pipe-stage .pipe-name {
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+  color: var(--chalk);
+}
+
+.pipe-stage .pipe-desc {
+  font-size: 0.75rem;
+  color: var(--chalk-faint);
+  line-height: 1.4;
+}
+
+.pipe-stage.s-yellow { border-top: 2px solid var(--yellow); }
+.pipe-stage.s-blue   { border-top: 2px solid var(--blue); }
+.pipe-stage.s-pink   { border-top: 2px solid var(--pink); }
+.pipe-stage.s-green  { border-top: 2px solid var(--green); }
+.pipe-stage.s-orange { border-top: 2px solid var(--orange); }
+
+/* ==============================
+   Numbered Propositions
+   ============================== */
+
+.prop-list {
+  margin: 2rem 0;
+  counter-reset: prop;
+}
+
+.prop-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.prop-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.prop-item::before {
+  counter-increment: prop;
+  content: counter(prop) ".";
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--yellow-dim);
+  flex-shrink: 0;
+  width: 2rem;
+  text-align: right;
+}
+
+.prop-item h4 {
+  font-style: italic;
+  margin-bottom: 0.2rem;
+}
+
+.prop-item p {
+  font-size: 0.88rem;
+  color: var(--chalk-dim);
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ==============================
+   Callout / Nota Bene
+   ============================== */
+
+.callout {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--chalk-faint);
+  background: var(--surface);
+  font-style: italic;
+}
+
+.callout p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--chalk-dim);
+}
+
+.callout strong {
+  color: var(--chalk);
+  font-style: normal;
+}
+
+/* ==============================
+   Tags
+   ============================== */
+
+.tag {
+  display: inline-block;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  padding: 0.15em 0.5em;
+  border-bottom: 1px solid;
+}
+
+.tag.t-yellow { color: var(--yellow); border-color: var(--yellow-dim); }
+.tag.t-blue   { color: var(--blue);   border-color: var(--blue-dim); }
+.tag.t-pink   { color: var(--pink);   border-color: var(--pink-dim); }
+.tag.t-green  { color: var(--green);  border-color: var(--green-dim); }
+.tag.t-orange { color: var(--orange); border-color: var(--orange-dim); }
+
+/* ==============================
+   Tables
+   ============================== */
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.88rem;
+}
+
+.info-table th {
+  text-align: left;
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--chalk-faint);
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.info-table td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--chalk-dim);
+  vertical-align: top;
+}
+
+.info-table td:first-child {
+  color: var(--chalk);
+  font-weight: 500;
+}
+
+/* ==============================
+   Diagram / Figure Container
+   ============================== */
+
+.diagram-wrap {
+  margin: 2.5rem 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.diagram-wrap.full-bleed {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.diagram-caption {
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--chalk-faint);
+  text-align: center;
+  margin-top: 1rem;
+}
+
+svg text {
+  font-family: 'EB Garamond', serif;
+}
+
+/* ==============================
+   Horizontal Rule (section break)
+   ============================== */
+
+hr {
+  border: none;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+hr::after {
+  content: '* * *';
+  color: var(--chalk-faint);
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.5em;
+}
+
+/* ==============================
+   Margin Note
+   ============================== */
+
+.margin-note {
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--chalk-faint);
+  line-height: 1.5;
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--border);
+}
+
+/* ==============================
+   Footer
+   ============================== */
+
+footer {
+  padding: 3rem 0;
+  text-align: center;
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  display: block;
+  width: 4rem;
+  height: 1px;
+  background: var(--border-light);
+  margin: 0 auto 2rem;
+}
+
+footer p {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--chalk-faint);
+}
