@@ -1,4 +1,4 @@
-# HTML Document Style Guide
+# Vesper
 
 A dark, editorial design system for single-page HTML documents. Purple-tinted surfaces, semantic color coding, and clean typographic hierarchy.
 

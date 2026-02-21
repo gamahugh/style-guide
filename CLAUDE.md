@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This repo contains an HTML/CSS style guide and template system for creating dark-themed, editorial single-page documents.
+This repo contains **Vesper**, an HTML/CSS style guide and template system for creating dark-themed, editorial single-page documents.
 
 ## Repo Structure
 
