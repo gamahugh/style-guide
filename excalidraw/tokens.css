@@ -1,0 +1,603 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+/* ==============================
+   Excalidraw — Design Tokens
+   ============================== */
+
+:root {
+  /* Canvas */
+  --bg: #ffffff;
+  --canvas: #fafaf9;
+  --surface: #ffffff;
+  --surface-tint: #f8f7f5;
+  --border: #d6d3d1;
+  --border-sketch: #c4c1bc;
+
+  /* Text */
+  --text: #1e1e1e;
+  --text-mid: #57534e;
+  --text-light: #a8a29e;
+
+  /* Excalidraw palette — strokes */
+  --red: #e03131;
+  --pink: #c2255c;
+  --purple: #6741d9;
+  --blue: #1971c2;
+  --cyan: #0c8599;
+  --green: #2f9e44;
+  --lime: #5c940d;
+  --orange: #f08c00;
+
+  /* Excalidraw palette — fills (pastel) */
+  --red-fill: #ffc9c9;
+  --pink-fill: #fcc2d7;
+  --purple-fill: #d0bfff;
+  --blue-fill: #a5d8ff;
+  --cyan-fill: #c3fae8;
+  --green-fill: #b2f2bb;
+  --lime-fill: #d8f5a2;
+  --orange-fill: #ffec99;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ==============================
+   Global Reset & Defaults
+   ============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ==============================
+   Typography
+   ============================== */
+
+h1, h2, h3 {
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  color: var(--text);
+}
+
+h1 {
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: 2.8rem;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+h4 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+p {
+  color: var(--text-mid);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+p strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ==============================
+   Layout
+   ============================== */
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+section + section::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--border-sketch) 0,
+    var(--border-sketch) 8px,
+    transparent 8px,
+    transparent 14px
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ==============================
+   Labels
+   ============================== */
+
+.section-num {
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.hero-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.diagram-label {
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+/* ==============================
+   Hero
+   ============================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+  background: var(--bg);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, var(--blue-fill) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, var(--orange-fill) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, var(--purple-fill) 0%, transparent 50%);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.hero h1 {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.hero h1 span {
+  position: relative;
+}
+
+.hero h1 span::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 2px;
+  height: 12px;
+  background: var(--orange-fill);
+  z-index: -1;
+  border-radius: 2px;
+  transform: rotate(-0.5deg);
+}
+
+.hero p {
+  max-width: 520px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-mid);
+  position: relative;
+}
+
+.hero-version {
+  margin-top: 2.5rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: var(--text-light);
+  letter-spacing: 0.1em;
+  position: relative;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1, .hero p, .hero-label, .hero-version {
+  animation: fadeUp 0.7s ease-out both;
+}
+.hero-label { animation-delay: 0s; }
+.hero h1 { animation-delay: 0.1s; }
+.hero p { animation-delay: 0.2s; }
+.hero-version { animation-delay: 0.3s; }
+
+/* ==============================
+   Sketch Cards (2-column grid)
+   ============================== */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 640px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+.sketch-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.sketch-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.sketch-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 8px 8px 0 0;
+}
+
+.sketch-card.red::before    { background: var(--red); }
+.sketch-card.pink::before   { background: var(--pink); }
+.sketch-card.purple::before { background: var(--purple); }
+.sketch-card.blue::before   { background: var(--blue); }
+.sketch-card.cyan::before   { background: var(--cyan); }
+.sketch-card.green::before  { background: var(--green); }
+.sketch-card.lime::before   { background: var(--lime); }
+.sketch-card.orange::before { background: var(--orange); }
+
+.sketch-card .card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.sketch-card h4 { margin-bottom: 0.4rem; }
+
+.sketch-card p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-mid);
+  margin-bottom: 0;
+}
+
+/* ==============================
+   Pipeline (horizontal)
+   ============================== */
+
+.pipeline {
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+.pipe-stage {
+  flex: 1;
+  min-width: 130px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.pipe-stage::after {
+  content: '';
+  position: absolute;
+  right: -0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid var(--border-sketch);
+}
+
+.pipe-stage:last-child::after { display: none; }
+
+.pipe-stage .pipe-num {
+  font-family: 'Caveat', cursive;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 0.25rem;
+}
+
+.pipe-stage .pipe-name {
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+}
+
+.pipe-stage .pipe-desc {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+.pipe-stage.s-red    { border-top: 3px solid var(--red); }
+.pipe-stage.s-blue   { border-top: 3px solid var(--blue); }
+.pipe-stage.s-green  { border-top: 3px solid var(--green); }
+.pipe-stage.s-orange { border-top: 3px solid var(--orange); }
+.pipe-stage.s-purple { border-top: 3px solid var(--purple); }
+
+/* ==============================
+   Numbered List
+   ============================== */
+
+.numbered-list {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.numbered-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.numbered-item .item-num {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--blue);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 2.25rem;
+  text-align: center;
+}
+
+.numbered-item h4 { margin-bottom: 0.3rem; }
+
+.numbered-item p {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==============================
+   Callout
+   ============================== */
+
+.callout {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border: 1.5px solid var(--border);
+  border-left: 3px solid var(--blue);
+  background: var(--surface);
+  border-radius: 4px 8px 8px 4px;
+  box-shadow: var(--shadow-sm);
+}
+
+.callout p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+}
+
+.callout strong {
+  color: var(--text);
+}
+
+/* ==============================
+   Tags / Pills
+   ============================== */
+
+.tag {
+  display: inline-block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2em 0.65em;
+  border-radius: 4px;
+  border: 1.5px solid;
+}
+
+.tag.t-red    { background: var(--red-fill);    color: var(--red);    border-color: var(--red); }
+.tag.t-blue   { background: var(--blue-fill);   color: var(--blue);   border-color: var(--blue); }
+.tag.t-green  { background: var(--green-fill);  color: var(--green);  border-color: var(--green); }
+.tag.t-orange { background: var(--orange-fill); color: var(--orange); border-color: var(--orange); }
+.tag.t-purple { background: var(--purple-fill); color: var(--purple); border-color: var(--purple); }
+.tag.t-pink   { background: var(--pink-fill);   color: var(--pink);   border-color: var(--pink); }
+.tag.t-cyan   { background: var(--cyan-fill);   color: var(--cyan);   border-color: var(--cyan); }
+
+/* ==============================
+   Tables
+   ============================== */
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.85rem;
+}
+
+.info-table th {
+  text-align: left;
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text);
+  padding: 0.6rem 1rem;
+  border-bottom: 1.5px solid var(--border);
+}
+
+.info-table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #eee;
+  color: var(--text-mid);
+  vertical-align: top;
+}
+
+.info-table td:first-child {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ==============================
+   Diagram / Whiteboard Container
+   ============================== */
+
+.diagram-wrap {
+  margin: 2.5rem 0;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+}
+
+.diagram-wrap.full-bleed {
+  max-width: 1060px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+svg text {
+  font-family: 'Caveat', cursive;
+}
+
+/* ==============================
+   Highlight / Underline markers
+   ============================== */
+
+.highlight {
+  position: relative;
+  display: inline;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: 1px;
+  height: 8px;
+  border-radius: 2px;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.highlight.yellow::after { background: var(--orange-fill); }
+.highlight.blue::after   { background: var(--blue-fill); }
+.highlight.green::after  { background: var(--green-fill); }
+.highlight.pink::after   { background: var(--pink-fill); }
+.highlight.purple::after { background: var(--purple-fill); }
+
+/* ==============================
+   Sticky Note
+   ============================== */
+
+.sticky {
+  display: inline-block;
+  padding: 1.25rem 1.5rem;
+  border-radius: 2px;
+  box-shadow: var(--shadow-md);
+  transform: rotate(-1deg);
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.sticky.yellow { background: var(--orange-fill); }
+.sticky.blue   { background: var(--blue-fill); }
+.sticky.green  { background: var(--green-fill); }
+.sticky.pink   { background: var(--pink-fill); }
+.sticky.purple { background: var(--purple-fill); }
+
+/* ==============================
+   Footer
+   ============================== */
+
+footer {
+  padding: 3rem 0;
+  text-align: center;
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--border-sketch) 0,
+    var(--border-sketch) 8px,
+    transparent 8px,
+    transparent 14px
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+footer p {
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  color: var(--text-light);
+}

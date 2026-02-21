@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excalidraw Style Guide</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  /* === Index-specific styles === */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+  .swatch {
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .swatch-color {
+    height: 48px;
+  }
+  .swatch-info {
+    padding: 0.5rem 0.65rem;
+    background: var(--surface);
+  }
+  .swatch-info .swatch-name {
+    font-family: 'Caveat', cursive;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.1rem;
+  }
+  .swatch-info .swatch-hex {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.6rem;
+    color: var(--text-light);
+  }
+
+  .font-sample {
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .font-sample .sample-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+  }
+  .font-sample-hand {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .font-sample-body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    color: var(--text-mid);
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  .font-sample-mono {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--text-mid);
+    letter-spacing: 0.02em;
+  }
+
+  .file-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .file-link:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+  .file-link .file-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .file-link h4 { margin-bottom: 0.2rem; }
+  .file-link p { margin: 0; font-size: 0.85rem; }
+
+  .inline-code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    background: var(--surface-tint);
+    border: 1px solid var(--border);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    color: var(--purple);
+  }
+
+  .text-tier-demo {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .text-tier-demo .tier {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+  .text-tier-demo .tier + .tier {
+    border-top: 1px solid #eee;
+  }
+  .text-tier-demo .tier-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.6rem;
+    color: var(--text-light);
+    width: 5.5rem;
+    flex-shrink: 0;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="hero-label">Design System Reference</div>
+  <h1>Excalidraw <span>Style</span></h1>
+  <p>A light, sketch-inspired design system with handwritten headings, pastel fills, and the friendly, whiteboard feel of Excalidraw.</p>
+  <div class="hero-version">v0.1 · experiment · <a href="template.html" style="color: var(--text-light); text-decoration: underline; text-underline-offset: 2px;">view starter template</a></div>
+</div>
+
+<div class="container">
+
+<!-- ============ QUICK START ============ -->
+<section>
+  <div class="section-num">00 — Quick Start</div>
+  <h2>Getting Started</h2>
+  <p>Copy <span class="inline-code">template.html</span> and <span class="inline-code">tokens.css</span> into your project. The template includes every component ready to customize.</p>
+
+  <div class="card-grid">
+    <a href="template.html" class="file-link">
+      <div class="file-icon">📄</div>
+      <div>
+        <h4>template.html</h4>
+        <p>Starter document with every component</p>
+      </div>
+    </a>
+    <a href="tokens.css" class="file-link">
+      <div class="file-icon">🎨</div>
+      <div>
+        <h4>tokens.css</h4>
+        <p>Variables, reset, and all component styles</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ COLORS ============ -->
+<section>
+  <div class="section-num">01 — Color Palette</div>
+  <h2>Canvas & Surfaces</h2>
+  <p>A <strong>light, warm white</strong> canvas with clean white card surfaces. Depth comes from subtle shadows, not background color shifts.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background: #fafaf9; border-bottom: 1px solid #eee;"></div>
+      <div class="swatch-info"><div class="swatch-name">canvas</div><div class="swatch-hex">#fafaf9</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #ffffff; border-bottom: 1px solid #eee;"></div>
+      <div class="swatch-info"><div class="swatch-name">surface</div><div class="swatch-hex">#ffffff</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #d6d3d1; border-bottom: 1px solid #eee;"></div>
+      <div class="swatch-info"><div class="swatch-name">border</div><div class="swatch-hex">#d6d3d1</div></div>
+    </div>
+  </div>
+
+  <h3>Text Hierarchy</h3>
+  <div class="text-tier-demo">
+    <div class="tier">
+      <div class="tier-label">--text</div>
+      <div style="color: var(--text); font-weight: 600;">Primary — headings, labels, strong emphasis</div>
+    </div>
+    <div class="tier">
+      <div class="tier-label">--text-mid</div>
+      <div style="color: var(--text-mid);">Mid — body paragraphs, descriptions, card content</div>
+    </div>
+    <div class="tier">
+      <div class="tier-label">--text-light</div>
+      <div style="color: var(--text-light);">Light — captions, metadata, section numbers</div>
+    </div>
+  </div>
+
+  <h3>Stroke Colors</h3>
+  <p>Excalidraw's signature palette. Bold, saturated strokes used for borders, labels, and accents.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background: #e03131;"></div><div class="swatch-info"><div class="swatch-name">red</div><div class="swatch-hex">#e03131</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #c2255c;"></div><div class="swatch-info"><div class="swatch-name">pink</div><div class="swatch-hex">#c2255c</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #6741d9;"></div><div class="swatch-info"><div class="swatch-name">purple</div><div class="swatch-hex">#6741d9</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #1971c2;"></div><div class="swatch-info"><div class="swatch-name">blue</div><div class="swatch-hex">#1971c2</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #0c8599;"></div><div class="swatch-info"><div class="swatch-name">cyan</div><div class="swatch-hex">#0c8599</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #2f9e44;"></div><div class="swatch-info"><div class="swatch-name">green</div><div class="swatch-hex">#2f9e44</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #5c940d;"></div><div class="swatch-info"><div class="swatch-name">lime</div><div class="swatch-hex">#5c940d</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #f08c00;"></div><div class="swatch-info"><div class="swatch-name">orange</div><div class="swatch-hex">#f08c00</div></div></div>
+  </div>
+
+  <h3>Pastel Fills</h3>
+  <p>Each stroke color pairs with a soft pastel fill used for backgrounds, highlights, and sticky notes.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background: #ffc9c9;"></div><div class="swatch-info"><div class="swatch-name">red fill</div><div class="swatch-hex">#ffc9c9</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #fcc2d7;"></div><div class="swatch-info"><div class="swatch-name">pink fill</div><div class="swatch-hex">#fcc2d7</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #d0bfff;"></div><div class="swatch-info"><div class="swatch-name">purple fill</div><div class="swatch-hex">#d0bfff</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #a5d8ff;"></div><div class="swatch-info"><div class="swatch-name">blue fill</div><div class="swatch-hex">#a5d8ff</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #c3fae8;"></div><div class="swatch-info"><div class="swatch-name">cyan fill</div><div class="swatch-hex">#c3fae8</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #b2f2bb;"></div><div class="swatch-info"><div class="swatch-name">green fill</div><div class="swatch-hex">#b2f2bb</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #d8f5a2;"></div><div class="swatch-info"><div class="swatch-name">lime fill</div><div class="swatch-hex">#d8f5a2</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #ffec99;"></div><div class="swatch-info"><div class="swatch-name">orange fill</div><div class="swatch-hex">#ffec99</div></div></div>
+  </div>
+
+  <p>Inline tags with stroke + fill pairing:
+    <span class="tag t-red">red</span>
+    <span class="tag t-blue">blue</span>
+    <span class="tag t-green">green</span>
+    <span class="tag t-orange">orange</span>
+    <span class="tag t-purple">purple</span>
+    <span class="tag t-pink">pink</span>
+    <span class="tag t-cyan">cyan</span>
+  </p>
+</section>
+
+<!-- ============ TYPOGRAPHY ============ -->
+<section>
+  <div class="section-num">02 — Typography</div>
+  <h2>Font Stack</h2>
+  <p>Three fonts. <strong>Handwritten for headings</strong>, <strong>rounded sans for body</strong>, <strong>monospace for code</strong>.</p>
+
+  <div class="font-sample">
+    <div class="sample-label">Caveat — Headings, section labels, diagram text, sticky notes</div>
+    <div class="font-sample-hand">The quick brown fox jumps over the lazy dog</div>
+  </div>
+
+  <div class="font-sample">
+    <div class="sample-label">Nunito — Body text, card content, tables (weights 300–700)</div>
+    <div class="font-sample-body">The quick brown fox jumps over the lazy dog. Body text uses weight 400 by default. <strong>Strong text uses weight 700</strong> and the primary text color to stand out.</div>
+  </div>
+
+  <div class="font-sample">
+    <div class="sample-label">Fira Code — Inline code, hero label, version strings</div>
+    <div class="font-sample-mono">const style = "excalidraw"; // monospace for technical details</div>
+  </div>
+
+  <h3>Type Scale</h3>
+  <table class="info-table">
+    <thead>
+      <tr><th>Element</th><th>Family</th><th>Size</th><th>Weight</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Hero h1</td><td>Caveat</td><td>clamp(3.5rem, 9vw, 6.5rem)</td><td>600</td></tr>
+      <tr><td>Section h2</td><td>Caveat</td><td>2.8rem</td><td>600</td></tr>
+      <tr><td>Subsection h3</td><td>Caveat</td><td>1.8rem</td><td>600</td></tr>
+      <tr><td>Card title h4</td><td>Nunito</td><td>0.9rem</td><td>700</td></tr>
+      <tr><td>Body paragraph</td><td>Nunito</td><td>0.95rem</td><td>400</td></tr>
+      <tr><td>Card body</td><td>Nunito</td><td>0.85rem</td><td>400</td></tr>
+      <tr><td>Section label</td><td>Caveat</td><td>1.1rem</td><td>500</td></tr>
+      <tr><td>Tag</td><td>Nunito</td><td>0.7rem</td><td>600</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ LAYOUT ============ -->
+<section>
+  <div class="section-num">03 — Layout</div>
+  <h2>Structure</h2>
+  <p>Single-column, centered container. Sections separated by <span class="highlight yellow">dashed sketch lines</span> instead of solid borders.</p>
+
+  <div class="card-grid">
+    <div class="sketch-card blue">
+      <div class="card-icon">📐</div>
+      <h4>Container</h4>
+      <p>Max-width 880px, centered, 2rem horizontal padding.</p>
+    </div>
+    <div class="sketch-card green">
+      <div class="card-icon">📏</div>
+      <h4>Sections</h4>
+      <p>5rem vertical padding. Dashed line separators between sections.</p>
+    </div>
+    <div class="sketch-card orange">
+      <div class="card-icon">☀️</div>
+      <h4>Depth via Shadows</h4>
+      <p>Three shadow levels (sm, md, lg) instead of surface color changes.</p>
+    </div>
+    <div class="sketch-card purple">
+      <div class="card-icon">📱</div>
+      <h4>Responsive</h4>
+      <p>Fluid hero type with clamp(). Card grids collapse below 640px.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPONENTS ============ -->
+<section>
+  <div class="section-num">04 — Components</div>
+  <h2>Sketch Cards</h2>
+  <p>Two-column card grid with <strong>colored top accent bars</strong> and a subtle lift on hover.</p>
+
+  <div class="card-grid">
+    <div class="sketch-card red">
+      <div class="card-icon">🔴</div>
+      <h4>.sketch-card.red</h4>
+      <p>Red accent bar. Cards have border, shadow, and hover lift.</p>
+    </div>
+    <div class="sketch-card blue">
+      <div class="card-icon">🔵</div>
+      <h4>.sketch-card.blue</h4>
+      <p>Blue accent bar.</p>
+    </div>
+    <div class="sketch-card green">
+      <div class="card-icon">🟢</div>
+      <h4>.sketch-card.green</h4>
+      <p>Green accent bar.</p>
+    </div>
+    <div class="sketch-card orange">
+      <div class="card-icon">🟠</div>
+      <h4>.sketch-card.orange</h4>
+      <p>Orange accent bar.</p>
+    </div>
+  </div>
+
+  <h2>Pipeline</h2>
+  <p>Horizontal stages with arrow connectors. Stages use <span class="inline-code">s-</span> prefixed classes.</p>
+
+  <div class="pipeline">
+    <div class="pipe-stage s-red">
+      <div class="pipe-num">01</div>
+      <div class="pipe-name">Input</div>
+      <div class="pipe-desc">.s-red</div>
+    </div>
+    <div class="pipe-stage s-blue">
+      <div class="pipe-num">02</div>
+      <div class="pipe-name">Process</div>
+      <div class="pipe-desc">.s-blue</div>
+    </div>
+    <div class="pipe-stage s-green">
+      <div class="pipe-num">03</div>
+      <div class="pipe-name">Validate</div>
+      <div class="pipe-desc">.s-green</div>
+    </div>
+    <div class="pipe-stage s-purple">
+      <div class="pipe-num">04</div>
+      <div class="pipe-name">Output</div>
+      <div class="pipe-desc">.s-purple</div>
+    </div>
+  </div>
+
+  <h2>Numbered List</h2>
+  <div class="numbered-list">
+    <div class="numbered-item">
+      <div class="item-num">1</div>
+      <div>
+        <h4>Numbered Item</h4>
+        <p>Large handwritten numbers in Caveat. Content uses standard h4 + p.</p>
+      </div>
+    </div>
+    <div class="numbered-item">
+      <div class="item-num">2</div>
+      <div>
+        <h4>Another Item</h4>
+        <p>Numbers default to --blue. Change via inline style if needed.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Callout</h2>
+  <div class="callout">
+    <p><strong>Note:</strong> Left-bordered callout box. Strong text inside uses the primary text color.</p>
+  </div>
+
+  <h2>Sticky Notes</h2>
+  <p>Small rotated cards with pastel backgrounds, mimicking sticky notes on a whiteboard.</p>
+
+  <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; margin: 2rem 0;">
+    <div class="sticky yellow">Yellow sticky</div>
+    <div class="sticky blue" style="transform: rotate(1.5deg);">Blue sticky</div>
+    <div class="sticky green" style="transform: rotate(-2deg);">Green sticky</div>
+    <div class="sticky pink" style="transform: rotate(0.5deg);">Pink sticky</div>
+    <div class="sticky purple" style="transform: rotate(-1deg);">Purple sticky</div>
+  </div>
+
+  <h2>Highlight Markers</h2>
+  <p>Inline <span class="highlight yellow">yellow</span>, <span class="highlight blue">blue</span>, <span class="highlight green">green</span>, <span class="highlight pink">pink</span>, and <span class="highlight purple">purple</span> highlights that mimic hand-drawn underlines.</p>
+
+  <h2>Diagram Container</h2>
+  <div class="diagram-wrap">
+    <div class="diagram-label">Figure 1 — Example Diagram</div>
+    <svg viewBox="0 0 700 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+      <rect x="20" y="10" width="180" height="80" rx="8" fill="#a5d8ff" stroke="#1971c2" stroke-width="1.5"/>
+      <text x="110" y="50" text-anchor="middle" fill="#1971c2" font-size="18" font-weight="600">Input</text>
+      <text x="110" y="72" text-anchor="middle" fill="#57534e" font-size="11" font-family="Nunito, sans-serif">pastel fill + stroke</text>
+
+      <line x1="200" y1="50" x2="255" y2="50" stroke="#a8a29e" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <polygon points="255,45 265,50 255,55" fill="#a8a29e"/>
+
+      <rect x="270" y="10" width="180" height="80" rx="8" fill="#b2f2bb" stroke="#2f9e44" stroke-width="1.5"/>
+      <text x="360" y="50" text-anchor="middle" fill="#2f9e44" font-size="18" font-weight="600">Process</text>
+      <text x="360" y="72" text-anchor="middle" fill="#57534e" font-size="11" font-family="Nunito, sans-serif">Caveat for labels</text>
+
+      <line x1="450" y1="50" x2="505" y2="50" stroke="#a8a29e" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <polygon points="505,45 515,50 505,55" fill="#a8a29e"/>
+
+      <rect x="520" y="10" width="160" height="80" rx="8" fill="#ffec99" stroke="#f08c00" stroke-width="1.5"/>
+      <text x="600" y="50" text-anchor="middle" fill="#f08c00" font-size="18" font-weight="600">Output</text>
+      <text x="600" y="72" text-anchor="middle" fill="#57534e" font-size="11" font-family="Nunito, sans-serif">dashed connectors</text>
+    </svg>
+  </div>
+
+  <h2>Table</h2>
+  <table class="info-table">
+    <thead>
+      <tr><th>Component</th><th>Class</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Sketch Card</td><td>.sketch-card .blue</td><td>Color class sets top bar</td></tr>
+      <tr><td>Pipeline</td><td>.pipe-stage .s-green</td><td>s- prefix for stage color</td></tr>
+      <tr><td>Tag</td><td>.tag .t-red</td><td>t- prefix, stroke + fill</td></tr>
+      <tr><td>Sticky</td><td>.sticky .yellow</td><td>Pastel fill, slight rotation</td></tr>
+      <tr><td>Highlight</td><td>.highlight .green</td><td>Inline underline marker</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ KEY PATTERNS ============ -->
+<section>
+  <div class="section-num">05 — Key Patterns</div>
+  <h2>Design Principles</h2>
+
+  <div class="numbered-list">
+    <div class="numbered-item">
+      <div class="item-num">1</div>
+      <div>
+        <h4>Light Canvas, White Cards</h4>
+        <p>Warm off-white background (#fafaf9) with pure white card surfaces. Depth from soft shadows, not darker surfaces.</p>
+      </div>
+    </div>
+    <div class="numbered-item">
+      <div class="item-num">2</div>
+      <div>
+        <h4>Handwritten Headings</h4>
+        <p>Caveat (handwritten) for all headings, labels, and decorative numbers. Gives everything a sketched, informal feel.</p>
+      </div>
+    </div>
+    <div class="numbered-item">
+      <div class="item-num">3</div>
+      <div>
+        <h4>Stroke + Pastel Fill Pairing</h4>
+        <p>Every color has a bold stroke variant and a soft pastel fill. Diagram nodes use pastel fills with stroke-colored borders and text.</p>
+      </div>
+    </div>
+    <div class="numbered-item">
+      <div class="item-num">4</div>
+      <div>
+        <h4>Sketch Separators</h4>
+        <p>Sections are divided by dashed lines (repeating gradient) instead of solid borders — mimicking hand-drawn dividers.</p>
+      </div>
+    </div>
+    <div class="numbered-item">
+      <div class="item-num">5</div>
+      <div>
+        <h4>Whiteboard Components</h4>
+        <p>Sticky notes, highlight markers, and slight rotations add the tactile, whiteboard feel that defines Excalidraw.</p>
+      </div>
+    </div>
+    <div class="numbered-item">
+      <div class="item-num">6</div>
+      <div>
+        <h4>Eight-Color Palette</h4>
+        <p>Red, pink, purple, blue, cyan, green, lime, orange — each with stroke and fill variants. More colors than Vesper, reflecting Excalidraw's rainbow palette.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <p>Excalidraw Style · v0.1 · experiment</p>
+  </div>
+</footer>
+
+</body>
+</html>

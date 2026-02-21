@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document Title</title>
+<link rel="stylesheet" href="tokens.css">
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="hero-label">Category or Context</div>
+  <h1>Document <span>Title</span></h1>
+  <p>A brief subtitle or description of what this document covers. Keep it to one or two sentences.</p>
+  <div class="hero-version">v0.1 · draft</div>
+</div>
+
+<!-- ============ SECTION ============ -->
+<div class="container">
+<section>
+  <div class="section-num">01 — Section Name</div>
+  <h2>Section Heading</h2>
+  <p>Body text goes here. Use <strong>strong tags</strong> to highlight key phrases within paragraphs. Body text renders in the mid color by default while strong text uses the primary text color.</p>
+
+  <h3>Subsection Heading</h3>
+  <p>Subsection content. Use <span class="highlight yellow">highlight markers</span> to call out important words inline, like a hand-drawn underline.</p>
+
+  <!-- Sketch Cards -->
+  <div class="card-grid">
+    <div class="sketch-card blue">
+      <div class="card-icon">📝</div>
+      <h4>Card Title</h4>
+      <p>Card description text. Use color class names (red, blue, green, orange, purple, pink, cyan) for the top accent bar.</p>
+    </div>
+    <div class="sketch-card green">
+      <div class="card-icon">🌱</div>
+      <h4>Card Title</h4>
+      <p>Card description text.</p>
+    </div>
+    <div class="sketch-card orange">
+      <div class="card-icon">🔥</div>
+      <h4>Card Title</h4>
+      <p>Card description text.</p>
+    </div>
+    <div class="sketch-card purple">
+      <div class="card-icon">🔮</div>
+      <h4>Card Title</h4>
+      <p>Card description text.</p>
+    </div>
+  </div>
+
+  <!-- Callout -->
+  <div class="callout">
+    <p><strong>Note:</strong> Callouts are bordered boxes for important asides. They have a colored left border accent.</p>
+  </div>
+</section>
+
+<!-- ============ PIPELINE EXAMPLE ============ -->
+<section>
+  <div class="section-num">02 — Process</div>
+  <h2>Pipeline Stages</h2>
+  <p>Use the pipeline component to show a linear sequence of steps.</p>
+
+  <div class="pipeline">
+    <div class="pipe-stage s-blue">
+      <div class="pipe-num">01</div>
+      <div class="pipe-name">First</div>
+      <div class="pipe-desc">Description of stage</div>
+    </div>
+    <div class="pipe-stage s-green">
+      <div class="pipe-num">02</div>
+      <div class="pipe-name">Second</div>
+      <div class="pipe-desc">Description of stage</div>
+    </div>
+    <div class="pipe-stage s-orange">
+      <div class="pipe-num">03</div>
+      <div class="pipe-name">Third</div>
+      <div class="pipe-desc">Description of stage</div>
+    </div>
+    <div class="pipe-stage s-purple">
+      <div class="pipe-num">04</div>
+      <div class="pipe-name">Fourth</div>
+      <div class="pipe-desc">Description of stage</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUMBERED LIST ============ -->
+<section>
+  <div class="section-num">03 — Principles</div>
+  <h2>Numbered List</h2>
+  <p>Use the numbered list for ordered items with detailed descriptions.</p>
+
+  <div class="numbered-list">
+    <div class="numbered-item">
+      <div class="item-num">1</div>
+      <div>
+        <h4>Item Title</h4>
+        <p>Item description goes here. Keep it to one or two sentences.</p>
+      </div>
+    </div>
+    <div class="numbered-item">
+      <div class="item-num">2</div>
+      <div>
+        <h4>Item Title</h4>
+        <p>Item description goes here.</p>
+      </div>
+    </div>
+    <div class="numbered-item">
+      <div class="item-num">3</div>
+      <div>
+        <h4>Item Title</h4>
+        <p>Item description goes here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TABLE & TAGS ============ -->
+<section>
+  <div class="section-num">04 — Reference</div>
+  <h2>Data Table</h2>
+  <p>Tables use a handwritten-style header with clean body rows.</p>
+
+  <table class="info-table">
+    <thead>
+      <tr><th>Name</th><th>Description</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Row label</td><td>Description text</td><td>Additional detail</td></tr>
+      <tr><td>Row label</td><td>Description text</td><td>Additional detail</td></tr>
+      <tr><td>Row label</td><td>Description text</td><td>Additional detail</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Tags -->
+  <p>
+    Inline tags:
+    <span class="tag t-red">red</span>
+    <span class="tag t-blue">blue</span>
+    <span class="tag t-green">green</span>
+    <span class="tag t-orange">orange</span>
+    <span class="tag t-purple">purple</span>
+    <span class="tag t-pink">pink</span>
+    <span class="tag t-cyan">cyan</span>
+  </p>
+
+  <!-- Sticky Notes -->
+  <h3>Sticky Notes</h3>
+  <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; margin: 2rem 0;">
+    <div class="sticky yellow">Remember this!</div>
+    <div class="sticky blue" style="transform: rotate(1.5deg);">Important idea</div>
+    <div class="sticky green" style="transform: rotate(-2deg);">Done ✓</div>
+    <div class="sticky pink" style="transform: rotate(0.5deg);">TODO</div>
+  </div>
+</section>
+
+<!-- ============ DIAGRAM EXAMPLE ============ -->
+<section>
+  <div class="section-num">05 — Diagrams</div>
+  <h2>Diagram Container</h2>
+  <p>Wrap SVGs or visual content in the diagram container. Add <code>full-bleed</code> class to expand wider.</p>
+
+  <div class="diagram-wrap">
+    <div class="diagram-label">Figure 1 — Diagram Title</div>
+    <svg viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+      <rect x="20" y="15" width="190" height="80" rx="8" fill="var(--blue-fill)" stroke="var(--blue)" stroke-width="1.5"/>
+      <text x="115" y="55" text-anchor="middle" fill="var(--blue)" font-size="18" font-weight="600">Node A</text>
+      <text x="115" y="78" text-anchor="middle" fill="var(--text-mid)" font-size="12" font-family="Nunito, sans-serif">description</text>
+
+      <line x1="210" y1="55" x2="260" y2="55" stroke="var(--text-light)" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <polygon points="260,50 270,55 260,60" fill="var(--text-light)"/>
+
+      <rect x="270" y="15" width="190" height="80" rx="8" fill="var(--green-fill)" stroke="var(--green)" stroke-width="1.5"/>
+      <text x="365" y="55" text-anchor="middle" fill="var(--green)" font-size="18" font-weight="600">Node B</text>
+      <text x="365" y="78" text-anchor="middle" fill="var(--text-mid)" font-size="12" font-family="Nunito, sans-serif">description</text>
+
+      <line x1="460" y1="55" x2="510" y2="55" stroke="var(--text-light)" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <polygon points="510,50 520,55 510,60" fill="var(--text-light)"/>
+
+      <rect x="520" y="15" width="160" height="80" rx="8" fill="var(--orange-fill)" stroke="var(--orange)" stroke-width="1.5"/>
+      <text x="600" y="55" text-anchor="middle" fill="var(--orange)" font-size="18" font-weight="600">Node C</text>
+      <text x="600" y="78" text-anchor="middle" fill="var(--text-mid)" font-size="12" font-family="Nunito, sans-serif">description</text>
+    </svg>
+  </div>
+</section>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <p>Document Title · v0.1 · Footer text</p>
+  </div>
+</footer>
+
+</body>
+</html>
