@@ -2,10 +2,13 @@
 
 A dark, editorial design system for single-page HTML documents. Purple-tinted surfaces, semantic color coding, and clean typographic hierarchy.
 
+**[Live Style Guide](https://gamahugh.github.io/style-guide/)** · **[Starter Template](https://gamahugh.github.io/style-guide/template.html)**
+
 ## Files
 
 | File | Purpose |
 |------|---------|
+| `index.html` | Live style guide — the design system rendered in its own style |
 | `style_guide.md` | Full reference — color tokens, type scale, spacing, component specs |
 | `tokens.css` | Drop-in stylesheet with all variables, reset, and component styles |
 | `template.html` | Starter document with every component wired up and ready to customize |
