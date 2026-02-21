@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document Title</title>
+<link rel="stylesheet" href="tokens.css">
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="hero-label">Subject Area</div>
+  <h1>Document <span>Title</span></h1>
+  <p>A brief description or abstract of the document. State the central observation or subject in one or two sentences.</p>
+  <div class="hero-version">v0.1 · draft</div>
+</div>
+
+<!-- ============ SECTION ============ -->
+<div class="container">
+<section>
+  <div class="section-num">01 &mdash; Section Name</div>
+  <h2>Section Heading</h2>
+  <p>Body text goes here. Use <strong>strong tags</strong> for emphasis. The body font is a clean modern sans-serif optimized for readability on screens.</p>
+
+  <h3>Subsection Heading</h3>
+  <p>Subsections use cyan headings. Use them to break longer sections into parts.</p>
+
+  <!-- Observation boxes -->
+  <div class="observation">
+    <div class="obs-head">Observation</div>
+    <p>State an empirical observation. Use <strong>strong</strong> for key quantities. The cyan left border signals an observation.</p>
+  </div>
+
+  <div class="hypothesis">
+    <div class="obs-head">Hypothesis</div>
+    <p>A proposed explanation. Violet left border.</p>
+  </div>
+
+  <div class="law">
+    <div class="obs-head">Law &mdash; Newton&rsquo;s Second</div>
+    <p>Established physical laws. Amber left border.</p>
+  </div>
+
+  <div class="constant">
+    <div class="obs-head">Constant &mdash; Speed of Light</div>
+    <p><strong>c</strong> = 299,792,458 <span class="unit">m/s</span>. Green left border for fundamental constants.</p>
+  </div>
+
+  <div class="experiment">
+    <div class="obs-head">Experiment</div>
+    <p>Describe the experimental setup. Red left border.</p>
+  </div>
+
+  <!-- Equation -->
+  <div class="equation">
+    E = mc&sup2;
+    <span class="eq-num">(1)</span>
+  </div>
+
+  <!-- Spectrum bar -->
+  <div class="spectrum-bar"></div>
+
+  <!-- Callout -->
+  <div class="callout">
+    <p><strong>Note:</strong> Default callout with cyan accent.</p>
+  </div>
+</section>
+
+<!-- ============ READOUT ============ -->
+<section>
+  <div class="section-num">02 &mdash; Readout Panel</div>
+  <h2>Data Readout</h2>
+  <p>Instrument-style panels for displaying key measurements or parameters.</p>
+
+  <div class="readout">
+    <div class="readout-cell photon">
+      <div class="readout-label">Velocity</div>
+      <div class="readout-value">3.0&times;10&#8312;</div>
+      <div class="readout-unit">m/s</div>
+    </div>
+    <div class="readout-cell violet">
+      <div class="readout-label">Wavelength</div>
+      <div class="readout-value">450</div>
+      <div class="readout-unit">nm</div>
+    </div>
+    <div class="readout-cell amber">
+      <div class="readout-label">Temperature</div>
+      <div class="readout-value">2.725</div>
+      <div class="readout-unit">K</div>
+    </div>
+    <div class="readout-cell green">
+      <div class="readout-label">Mass</div>
+      <div class="readout-value">1.67&times;10&#8315;&sup2;&#8311;</div>
+      <div class="readout-unit">kg</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARDS ============ -->
+<section>
+  <div class="section-num">03 &mdash; Cards</div>
+  <h2>Physics Cards</h2>
+
+  <div class="card-grid">
+    <div class="phys-card photon">
+      <div class="card-label">Field-001</div>
+      <h4>Card Title</h4>
+      <p>Use color classes (photon, violet, blue, green, amber, red) for the top bar.</p>
+    </div>
+    <div class="phys-card violet">
+      <div class="card-label">Field-002</div>
+      <h4>Card Title</h4>
+      <p>Card description text.</p>
+    </div>
+    <div class="phys-card amber">
+      <div class="card-label">Field-003</div>
+      <h4>Card Title</h4>
+      <p>Card description text.</p>
+    </div>
+    <div class="phys-card red">
+      <div class="card-label">Field-004</div>
+      <h4>Card Title</h4>
+      <p>Card description text.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PIPELINE ============ -->
+<section>
+  <div class="section-num">04 &mdash; Process</div>
+  <h2>Pipeline</h2>
+
+  <div class="pipeline">
+    <div class="pipe-stage s-photon">
+      <div class="pipe-num">01</div>
+      <div class="pipe-name">Observe</div>
+      <div class="pipe-desc">Collect data</div>
+    </div>
+    <div class="pipe-stage s-violet">
+      <div class="pipe-num">02</div>
+      <div class="pipe-name">Hypothesize</div>
+      <div class="pipe-desc">Propose model</div>
+    </div>
+    <div class="pipe-stage s-amber">
+      <div class="pipe-num">03</div>
+      <div class="pipe-name">Predict</div>
+      <div class="pipe-desc">Derive results</div>
+    </div>
+    <div class="pipe-stage s-red">
+      <div class="pipe-num">04</div>
+      <div class="pipe-name">Test</div>
+      <div class="pipe-desc">Experiment</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUMBERED LIST ============ -->
+<section>
+  <div class="section-num">05 &mdash; Principles</div>
+  <h2>Numbered List</h2>
+
+  <div class="num-list">
+    <div class="num-item">
+      <div class="item-num">1</div>
+      <div>
+        <h4>Item Title</h4>
+        <p>Description text.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">2</div>
+      <div>
+        <h4>Item Title</h4>
+        <p>Description text.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TABLE & TAGS ============ -->
+<section>
+  <div class="section-num">06 &mdash; Reference</div>
+  <h2>Data Table</h2>
+
+  <table class="info-table">
+    <thead>
+      <tr><th>Quantity</th><th>Symbol</th><th>Value</th><th>Unit</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Speed of light</td><td>c</td><td>2.998 &times; 10&#8312;</td><td>m/s</td></tr>
+      <tr><td>Planck constant</td><td>h</td><td>6.626 &times; 10&#8315;&sup3;&#8308;</td><td>J&middot;s</td></tr>
+      <tr><td>Boltzmann constant</td><td>k<sub>B</sub></td><td>1.381 &times; 10&#8315;&sup2;&sup3;</td><td>J/K</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Tags</h3>
+  <p>
+    <span class="tag t-photon">Photon</span>
+    <span class="tag t-violet">Violet</span>
+    <span class="tag t-blue">Blue</span>
+    <span class="tag t-green">Green</span>
+    <span class="tag t-amber">Amber</span>
+    <span class="tag t-red">Red</span>
+  </p>
+</section>
+
+<!-- ============ DIAGRAM ============ -->
+<section>
+  <div class="section-num">07 &mdash; Diagrams</div>
+  <h2>Diagram Container</h2>
+
+  <div class="diagram-wrap">
+    <div class="diagram-label">Fig. 01 &mdash; System Overview</div>
+    <svg viewBox="0 0 700 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+      <rect x="20" y="10" width="170" height="75" rx="4" fill="none" stroke="#22d3ee" stroke-width="1"/>
+      <text x="105" y="42" text-anchor="middle" fill="#22d3ee" font-size="9" letter-spacing="0.1em">SOURCE</text>
+      <text x="105" y="62" text-anchor="middle" fill="#4a5068" font-size="7.5">Emit photons</text>
+
+      <line x1="190" y1="48" x2="255" y2="48" stroke="#22d3ee" stroke-width="0.8" stroke-dasharray="4,3"/>
+      <polygon points="252,44 260,48 252,52" fill="#22d3ee"/>
+
+      <rect x="265" y="10" width="170" height="75" rx="4" fill="none" stroke="#a78bfa" stroke-width="1"/>
+      <text x="350" y="42" text-anchor="middle" fill="#a78bfa" font-size="9" letter-spacing="0.1em">MEDIUM</text>
+      <text x="350" y="62" text-anchor="middle" fill="#4a5068" font-size="7.5">Interact</text>
+
+      <line x1="435" y1="48" x2="500" y2="48" stroke="#a78bfa" stroke-width="0.8" stroke-dasharray="4,3"/>
+      <polygon points="497,44 505,48 497,52" fill="#a78bfa"/>
+
+      <rect x="510" y="10" width="170" height="75" rx="4" fill="none" stroke="#4ade80" stroke-width="1"/>
+      <text x="595" y="42" text-anchor="middle" fill="#4ade80" font-size="9" letter-spacing="0.1em">DETECTOR</text>
+      <text x="595" y="62" text-anchor="middle" fill="#4a5068" font-size="7.5">Measure</text>
+    </svg>
+  </div>
+</section>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <p>Document Title &middot; v0.1 &middot; Draft</p>
+  </div>
+</footer>
+
+</body>
+</html>

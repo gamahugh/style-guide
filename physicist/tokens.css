@@ -1,0 +1,692 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+/* ==============================
+   Physicist — Design Tokens
+   ============================== */
+
+:root {
+  /* Void */
+  --bg: #08090e;
+  --surface: #11131c;
+  --surface-2: #191c28;
+  --border: #252838;
+  --border-light: #323650;
+
+  /* Text */
+  --text: #e4e6f0;
+  --text-dim: #8890a8;
+  --text-faint: #4a5068;
+
+  /* Primary — Cherenkov cyan */
+  --photon: #22d3ee;
+  --photon-dim: #0e7490;
+  --photon-fill: rgba(34, 211, 238, 0.06);
+
+  /* Spectrum */
+  --violet: #a78bfa;
+  --violet-dim: #5b44a0;
+  --violet-fill: rgba(167, 139, 250, 0.06);
+
+  --blue: #60a5fa;
+  --blue-dim: #2563a0;
+  --blue-fill: rgba(96, 165, 250, 0.06);
+
+  --green: #4ade80;
+  --green-dim: #1a8a40;
+  --green-fill: rgba(74, 222, 128, 0.06);
+
+  --amber: #fbbf24;
+  --amber-dim: #8a6a10;
+  --amber-fill: rgba(251, 191, 36, 0.06);
+
+  --red: #f87171;
+  --red-dim: #9a2c2c;
+  --red-fill: rgba(248, 113, 113, 0.06);
+}
+
+/* ==============================
+   Global Reset & Defaults
+   ============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ==============================
+   Typography
+   ============================== */
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--text);
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1.0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  margin-top: 2.5rem;
+  color: var(--photon);
+  letter-spacing: 0.01em;
+}
+
+h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+p {
+  color: var(--text-dim);
+  margin-bottom: 1rem;
+  font-size: 0.92rem;
+}
+
+p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ==============================
+   Layout
+   ============================== */
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+/* ==============================
+   Labels
+   ============================== */
+
+.section-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.75rem;
+}
+
+.hero-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--photon-dim);
+  margin-bottom: 2rem;
+}
+
+.diagram-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 1.25rem;
+}
+
+/* ==============================
+   Hero
+   ============================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(34, 211, 238, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(167, 139, 250, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero h1 {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.hero h1 span {
+  color: var(--photon);
+}
+
+.hero p {
+  max-width: 520px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-dim);
+  position: relative;
+}
+
+.hero-version {
+  margin-top: 3rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-faint);
+  letter-spacing: 0.12em;
+  position: relative;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1, .hero p, .hero-label, .hero-version {
+  animation: fadeUp 0.7s ease-out both;
+}
+.hero-label { animation-delay: 0s; }
+.hero h1 { animation-delay: 0.12s; }
+.hero p { animation-delay: 0.24s; }
+.hero-version { animation-delay: 0.36s; }
+
+/* ==============================
+   Observation Boxes
+   ============================== */
+
+.observation,
+.hypothesis,
+.law,
+.constant,
+.experiment {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  position: relative;
+}
+
+.observation  { border-left: 3px solid var(--photon); }
+.hypothesis   { border-left: 3px solid var(--violet); }
+.law          { border-left: 3px solid var(--amber); }
+.constant     { border-left: 3px solid var(--green); }
+.experiment   { border-left: 3px solid var(--red); }
+
+.obs-head {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.observation .obs-head  { color: var(--photon); }
+.hypothesis .obs-head   { color: var(--violet); }
+.law .obs-head          { color: var(--amber); }
+.constant .obs-head     { color: var(--green); }
+.experiment .obs-head   { color: var(--red); }
+
+.observation p,
+.hypothesis p,
+.law p,
+.constant p,
+.experiment p {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+.observation p strong,
+.hypothesis p strong,
+.law p strong,
+.constant p strong,
+.experiment p strong {
+  color: var(--text);
+}
+
+/* ==============================
+   Equation Display
+   ============================== */
+
+.equation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  margin: 2rem 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+.equation .eq-num {
+  position: absolute;
+  right: 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--text-faint);
+}
+
+/* ==============================
+   Readout Panel
+   ============================== */
+
+.readout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px;
+  margin: 2rem 0;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.readout-cell {
+  background: var(--surface);
+  padding: 1.25rem;
+}
+
+.readout-cell .readout-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.5rem;
+}
+
+.readout-cell .readout-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.readout-cell .readout-unit {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-faint);
+}
+
+.readout-cell.photon .readout-value { color: var(--photon); }
+.readout-cell.violet .readout-value { color: var(--violet); }
+.readout-cell.blue .readout-value   { color: var(--blue); }
+.readout-cell.green .readout-value  { color: var(--green); }
+.readout-cell.amber .readout-value  { color: var(--amber); }
+.readout-cell.red .readout-value    { color: var(--red); }
+
+/* ==============================
+   Spectrum Bar
+   ============================== */
+
+.spectrum-bar {
+  height: 4px;
+  border-radius: 2px;
+  margin: 2rem 0;
+  background: linear-gradient(
+    90deg,
+    var(--violet),
+    var(--blue),
+    var(--photon),
+    var(--green),
+    var(--amber),
+    var(--red)
+  );
+}
+
+.spectrum-bar.thin {
+  height: 2px;
+  margin: 1rem 0;
+}
+
+/* ==============================
+   Cards (2-column grid)
+   ============================== */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 640px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+.phys-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.phys-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+
+.phys-card.photon::before { background: var(--photon); }
+.phys-card.violet::before { background: var(--violet); }
+.phys-card.blue::before   { background: var(--blue); }
+.phys-card.green::before  { background: var(--green); }
+.phys-card.amber::before  { background: var(--amber); }
+.phys-card.red::before    { background: var(--red); }
+
+.phys-card .card-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.6rem;
+}
+
+.phys-card h4 { margin-bottom: 0.4rem; }
+
+.phys-card p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+  margin-bottom: 0;
+}
+
+/* ==============================
+   Pipeline
+   ============================== */
+
+.pipeline {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+.pipe-stage {
+  flex: 1;
+  min-width: 130px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  position: relative;
+}
+
+.pipe-stage::after {
+  content: '→';
+  position: absolute;
+  right: -0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+.pipe-stage:last-child::after { display: none; }
+
+.pipe-stage::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 4px 4px 0 0;
+}
+
+.pipe-stage.s-photon::before { background: var(--photon); }
+.pipe-stage.s-violet::before { background: var(--violet); }
+.pipe-stage.s-blue::before   { background: var(--blue); }
+.pipe-stage.s-green::before  { background: var(--green); }
+.pipe-stage.s-amber::before  { background: var(--amber); }
+.pipe-stage.s-red::before    { background: var(--red); }
+
+.pipe-stage .pipe-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: var(--text-faint);
+  margin-bottom: 0.3rem;
+}
+
+.pipe-stage .pipe-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+}
+
+.pipe-stage .pipe-desc {
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  line-height: 1.4;
+}
+
+/* ==============================
+   Numbered List
+   ============================== */
+
+.num-list {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.num-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.num-item .item-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--photon-dim);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 2rem;
+  text-align: center;
+}
+
+.num-item h4 { margin-bottom: 0.3rem; }
+
+.num-item p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==============================
+   Callout
+   ============================== */
+
+.callout {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--photon);
+  background: var(--photon-fill);
+  border-radius: 0 4px 4px 0;
+}
+
+.callout.warning {
+  border-left-color: var(--amber);
+  background: var(--amber-fill);
+}
+
+.callout.danger {
+  border-left-color: var(--red);
+  background: var(--red-fill);
+}
+
+.callout p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+.callout strong { color: var(--text); }
+
+/* ==============================
+   Tags
+   ============================== */
+
+.tag {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2em 0.6em;
+  border-radius: 2px;
+  border: 1px solid;
+}
+
+.tag.t-photon { background: var(--photon-fill); color: var(--photon); border-color: var(--photon-dim); }
+.tag.t-violet { background: var(--violet-fill); color: var(--violet); border-color: var(--violet-dim); }
+.tag.t-blue   { background: var(--blue-fill);   color: var(--blue);   border-color: var(--blue-dim); }
+.tag.t-green  { background: var(--green-fill);  color: var(--green);  border-color: var(--green-dim); }
+.tag.t-amber  { background: var(--amber-fill);  color: var(--amber);  border-color: var(--amber-dim); }
+.tag.t-red    { background: var(--red-fill);     color: var(--red);    border-color: var(--red-dim); }
+
+/* ==============================
+   Tables
+   ============================== */
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.85rem;
+}
+
+.info-table th {
+  text-align: left;
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.info-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+  vertical-align: top;
+}
+
+.info-table td:first-child {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ==============================
+   Diagram Container
+   ============================== */
+
+.diagram-wrap {
+  margin: 2.5rem 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.diagram-wrap.full-bleed {
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+svg text {
+  font-family: 'Space Mono', monospace;
+}
+
+/* ==============================
+   Unit Annotation
+   ============================== */
+
+.unit {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  vertical-align: baseline;
+}
+
+/* ==============================
+   Footer
+   ============================== */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+footer p {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-faint);
+  letter-spacing: 0.12em;
+}

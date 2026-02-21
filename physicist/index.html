@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physicist — Void &amp; Spectrum Design System</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+  .swatch {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .swatch-color { height: 48px; }
+  .swatch-info { padding: 0.5rem 0.65rem; background: var(--surface); }
+  .swatch-info .swatch-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--text);
+    margin-bottom: 0.1rem;
+  }
+  .swatch-info .swatch-hex {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--text-faint);
+  }
+
+  .font-sample {
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+  }
+  .font-sample .sample-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 0.75rem;
+  }
+  .font-sample-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .font-sample-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dim);
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  .font-sample-mono {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+
+  .file-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .file-link:hover { border-color: var(--photon-dim); }
+  .file-link .file-icon {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--photon);
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+  }
+  .file-link h4 { margin-bottom: 0.2rem; }
+  .file-link p { margin: 0; font-size: 0.85rem; }
+
+  .inline-code {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    background: var(--surface-2);
+    padding: 0.15em 0.4em;
+    border-radius: 2px;
+    color: var(--photon);
+  }
+
+  .text-tier-demo {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin: 1.5rem 0;
+  }
+  .text-tier-demo .tier {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+  .text-tier-demo .tier + .tier { border-top: 1px solid var(--border); }
+  .text-tier-demo .tier-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--text-faint);
+    width: 5.5rem;
+    flex-shrink: 0;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="hero-label">Design System Reference</div>
+  <h1><span>Physicist</span></h1>
+  <p>A void-and-spectrum design system with near-black backgrounds, Cherenkov cyan accents, geometric sans-serif headings, instrument readout panels, and the clean precision of a modern physics lab.</p>
+  <div class="hero-version">v0.1 &middot; <a href="template.html" style="color: var(--text-faint); text-decoration: underline; text-underline-offset: 3px;">view starter template</a></div>
+</div>
+
+<div class="container">
+
+<!-- ============ QUICK START ============ -->
+<section>
+  <div class="section-num">00 &mdash; Quick Start</div>
+  <h2>Getting Started</h2>
+  <p>Copy <span class="inline-code">template.html</span> and <span class="inline-code">tokens.css</span> into your project.</p>
+
+  <div class="card-grid">
+    <a href="template.html" class="file-link">
+      <div class="file-icon">[HTML]</div>
+      <div>
+        <h4>template.html</h4>
+        <p>Starter document with every component</p>
+      </div>
+    </a>
+    <a href="tokens.css" class="file-link">
+      <div class="file-icon">[CSS]</div>
+      <div>
+        <h4>tokens.css</h4>
+        <p>Variables, reset, and all component styles</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ COLORS ============ -->
+<section>
+  <div class="section-num">01 &mdash; Color Specification</div>
+  <h2>The Void</h2>
+  <p>Near-black backgrounds with a cool <strong>blue-black undertone</strong> &mdash; darker than Vesper (purple) or Engineer (navy). Like looking into deep space.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background: #08090e;"></div><div class="swatch-info"><div class="swatch-name">--bg</div><div class="swatch-hex">#08090e</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #11131c;"></div><div class="swatch-info"><div class="swatch-name">--surface</div><div class="swatch-hex">#11131c</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #191c28;"></div><div class="swatch-info"><div class="swatch-name">--surface-2</div><div class="swatch-hex">#191c28</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #252838;"></div><div class="swatch-info"><div class="swatch-name">--border</div><div class="swatch-hex">#252838</div></div></div>
+  </div>
+
+  <h3>Text Hierarchy</h3>
+  <div class="text-tier-demo">
+    <div class="tier">
+      <div class="tier-label">--text</div>
+      <div style="color: var(--text); font-weight: 500;">Primary &mdash; headings, labels, emphasis</div>
+    </div>
+    <div class="tier">
+      <div class="tier-label">--text-dim</div>
+      <div style="color: var(--text-dim);">Dim &mdash; body paragraphs, descriptions</div>
+    </div>
+    <div class="tier">
+      <div class="tier-label">--text-faint</div>
+      <div style="color: var(--text-faint);">Faint &mdash; labels, metadata, units</div>
+    </div>
+  </div>
+
+  <h3>Cherenkov Cyan (Primary)</h3>
+  <p>The signature accent &mdash; named for Cherenkov radiation, the blue glow of particles exceeding light speed in a medium.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background: #22d3ee;"></div><div class="swatch-info"><div class="swatch-name">--photon</div><div class="swatch-hex">#22d3ee</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #0e7490;"></div><div class="swatch-info"><div class="swatch-name">--photon-dim</div><div class="swatch-hex">#0e7490</div></div></div>
+  </div>
+
+  <h3>Spectrum Colors</h3>
+  <p>Five secondary colors inspired by the electromagnetic spectrum. Each has full, dim, and fill (6% opacity) variants.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background: #a78bfa;"></div><div class="swatch-info"><div class="swatch-name">--violet</div><div class="swatch-hex">#a78bfa</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #60a5fa;"></div><div class="swatch-info"><div class="swatch-name">--blue</div><div class="swatch-hex">#60a5fa</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #4ade80;"></div><div class="swatch-info"><div class="swatch-name">--green</div><div class="swatch-hex">#4ade80</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #fbbf24;"></div><div class="swatch-info"><div class="swatch-name">--amber</div><div class="swatch-hex">#fbbf24</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #f87171;"></div><div class="swatch-info"><div class="swatch-name">--red</div><div class="swatch-hex">#f87171</div></div></div>
+  </div>
+
+  <div class="spectrum-bar"></div>
+
+  <p>Tags across the spectrum:
+    <span class="tag t-photon">Photon</span>
+    <span class="tag t-violet">Violet</span>
+    <span class="tag t-blue">Blue</span>
+    <span class="tag t-green">Green</span>
+    <span class="tag t-amber">Amber</span>
+    <span class="tag t-red">Red</span>
+  </p>
+</section>
+
+<!-- ============ TYPOGRAPHY ============ -->
+<section>
+  <div class="section-num">02 &mdash; Typography</div>
+  <h2>Font Stack</h2>
+  <p><strong>Space Grotesk for headings</strong> (geometric, space-age), <strong>Inter for body</strong> (precise, screen-optimized), <strong>Space Mono for data</strong> (fits the theme).</p>
+
+  <div class="font-sample">
+    <div class="sample-label">Space Grotesk &mdash; Headings, readout values, card titles (400&ndash;700)</div>
+    <div class="font-sample-heading">The quick brown fox jumps over the lazy dog</div>
+  </div>
+
+  <div class="font-sample">
+    <div class="sample-label">Inter &mdash; Body text, descriptions, card content (300&ndash;600)</div>
+    <div class="font-sample-body">The quick brown fox jumps over the lazy dog. Body text uses weight 400 by default. <strong>Strong text uses weight 600</strong> and the primary text color.</div>
+  </div>
+
+  <div class="font-sample">
+    <div class="sample-label">Space Mono &mdash; Labels, tags, units, section numbers</div>
+    <div class="font-sample-mono">01 &mdash; OBSERVATION &middot; c = 2.998e8 m/s &middot; &lambda; = 450 nm</div>
+  </div>
+
+  <h3>Type Scale</h3>
+  <table class="info-table">
+    <thead>
+      <tr><th>Element</th><th>Family</th><th>Size</th><th>Weight</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Hero h1</td><td>Space Grotesk</td><td>clamp(3rem, 8vw, 5.5rem)</td><td>700</td></tr>
+      <tr><td>Section h2</td><td>Space Grotesk</td><td>2rem</td><td>600</td></tr>
+      <tr><td>Subsection h3</td><td>Space Grotesk</td><td>1.2rem</td><td>600</td></tr>
+      <tr><td>Card title h4</td><td>Space Grotesk</td><td>0.88rem</td><td>600</td></tr>
+      <tr><td>Body</td><td>Inter</td><td>0.92rem</td><td>400</td></tr>
+      <tr><td>Readout value</td><td>Space Grotesk</td><td>1.6rem</td><td>700</td></tr>
+      <tr><td>Section label</td><td>Space Mono</td><td>0.6rem</td><td>400</td></tr>
+      <tr><td>Tag</td><td>Space Mono</td><td>0.55rem</td><td>400</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>Note:</strong> Headings use negative letter-spacing (-0.02em on h1) for a tight, modern feel. This contrasts with Engineer&rsquo;s positive letter-spacing.</p>
+  </div>
+</section>
+
+<!-- ============ LAYOUT ============ -->
+<section>
+  <div class="section-num">03 &mdash; Layout</div>
+  <h2>Structure</h2>
+
+  <div class="card-grid">
+    <div class="phys-card photon">
+      <div class="card-label">Layout</div>
+      <h4>Container</h4>
+      <p>Max-width 880px, centered, 2rem horizontal padding.</p>
+    </div>
+    <div class="phys-card violet">
+      <div class="card-label">Layout</div>
+      <h4>Sections</h4>
+      <p>5rem vertical padding. Solid 1px border-top dividers.</p>
+    </div>
+    <div class="phys-card blue">
+      <div class="card-label">Layout</div>
+      <h4>Border Radius</h4>
+      <p>Minimal 4px radius on cards, tags, containers. Just barely rounded.</p>
+    </div>
+    <div class="phys-card green">
+      <div class="card-label">Layout</div>
+      <h4>Responsive</h4>
+      <p>Fluid hero type. Card grids and readouts reflow at 640px.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPONENTS ============ -->
+<section>
+  <div class="section-num">04 &mdash; Components</div>
+  <h2>Observation Boxes</h2>
+  <p>Five variants for different types of physics statements, each with a colored left border and monospace header label.</p>
+
+  <div class="observation">
+    <div class="obs-head">Observation</div>
+    <p>Empirical data. Cyan (<span class="inline-code">--photon</span>) left border.</p>
+  </div>
+
+  <div class="hypothesis">
+    <div class="obs-head">Hypothesis</div>
+    <p>Proposed explanations. Violet left border.</p>
+  </div>
+
+  <div class="law">
+    <div class="obs-head">Law</div>
+    <p>Established principles. Amber left border.</p>
+  </div>
+
+  <div class="constant">
+    <div class="obs-head">Constant</div>
+    <p>Fundamental values. Green left border. <strong>G</strong> = 6.674 &times; 10&#8315;&#185;&#185; <span class="unit">N&middot;m&sup2;/kg&sup2;</span></p>
+  </div>
+
+  <div class="experiment">
+    <div class="obs-head">Experiment</div>
+    <p>Procedures and setups. Red left border.</p>
+  </div>
+
+  <h2>Readout Panel</h2>
+  <p>Grid of instrument-style readout cells. Large values with monospace unit labels beneath. Color the value with a spectrum class.</p>
+
+  <div class="readout">
+    <div class="readout-cell photon">
+      <div class="readout-label">Speed</div>
+      <div class="readout-value">299,792</div>
+      <div class="readout-unit">km/s</div>
+    </div>
+    <div class="readout-cell violet">
+      <div class="readout-label">Frequency</div>
+      <div class="readout-value">6.67&times;10&#185;&#8308;</div>
+      <div class="readout-unit">Hz</div>
+    </div>
+    <div class="readout-cell green">
+      <div class="readout-label">Energy</div>
+      <div class="readout-value">13.6</div>
+      <div class="readout-unit">eV</div>
+    </div>
+    <div class="readout-cell amber">
+      <div class="readout-label">Charge</div>
+      <div class="readout-value">1.602&times;10&#8315;&#185;&#8313;</div>
+      <div class="readout-unit">C</div>
+    </div>
+  </div>
+
+  <h2>Spectrum Bar</h2>
+  <p>A gradient bar spanning the full color palette. Use <span class="inline-code">.thin</span> for a 2px variant.</p>
+  <div class="spectrum-bar"></div>
+  <div class="spectrum-bar thin"></div>
+
+  <h2>Equation Display</h2>
+  <div class="equation">
+    E = mc&sup2;
+    <span class="eq-num">(1)</span>
+  </div>
+  <div class="equation">
+    F = G(m&#8321;m&#8322;) / r&sup2;
+    <span class="eq-num">(2)</span>
+  </div>
+
+  <h2>Physics Cards</h2>
+  <div class="card-grid">
+    <div class="phys-card photon">
+      <div class="card-label">Photon</div>
+      <h4>.phys-card.photon</h4>
+      <p>Cyan accent. Primary observations.</p>
+    </div>
+    <div class="phys-card violet">
+      <div class="card-label">Violet</div>
+      <h4>.phys-card.violet</h4>
+      <p>Violet accent. Hypotheses, theory.</p>
+    </div>
+    <div class="phys-card amber">
+      <div class="card-label">Amber</div>
+      <h4>.phys-card.amber</h4>
+      <p>Amber accent. Laws, established.</p>
+    </div>
+    <div class="phys-card red">
+      <div class="card-label">Red</div>
+      <h4>.phys-card.red</h4>
+      <p>Red accent. Experiments, testing.</p>
+    </div>
+  </div>
+
+  <h2>Pipeline</h2>
+  <div class="pipeline">
+    <div class="pipe-stage s-photon">
+      <div class="pipe-num">01</div>
+      <div class="pipe-name">Observe</div>
+      <div class="pipe-desc">.s-photon</div>
+    </div>
+    <div class="pipe-stage s-violet">
+      <div class="pipe-num">02</div>
+      <div class="pipe-name">Model</div>
+      <div class="pipe-desc">.s-violet</div>
+    </div>
+    <div class="pipe-stage s-amber">
+      <div class="pipe-num">03</div>
+      <div class="pipe-name">Predict</div>
+      <div class="pipe-desc">.s-amber</div>
+    </div>
+    <div class="pipe-stage s-red">
+      <div class="pipe-num">04</div>
+      <div class="pipe-name">Test</div>
+      <div class="pipe-desc">.s-red</div>
+    </div>
+  </div>
+
+  <h2>Callout Variants</h2>
+  <div class="callout">
+    <p><strong>Note:</strong> Default callout. Cyan accent, photon fill background.</p>
+  </div>
+  <div class="callout warning">
+    <p><strong>Warning:</strong> Amber variant for cautions and edge cases.</p>
+  </div>
+  <div class="callout danger">
+    <p><strong>Danger:</strong> Red variant for critical information.</p>
+  </div>
+
+  <h2>Diagram Container</h2>
+  <div class="diagram-wrap">
+    <div class="diagram-label">Fig. 01 &mdash; Energy Levels</div>
+    <svg viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:600px;height:auto;margin:0 auto;display:block;">
+      <!-- Energy levels -->
+      <line x1="100" y1="120" x2="500" y2="120" stroke="#252838" stroke-width="1"/>
+      <line x1="100" y1="80" x2="500" y2="80" stroke="#252838" stroke-width="1"/>
+      <line x1="100" y1="50" x2="500" y2="50" stroke="#252838" stroke-width="1"/>
+      <line x1="100" y1="30" x2="500" y2="30" stroke="#252838" stroke-width="1"/>
+
+      <text x="80" y="124" text-anchor="end" fill="#4a5068" font-size="8">n=1</text>
+      <text x="80" y="84" text-anchor="end" fill="#4a5068" font-size="8">n=2</text>
+      <text x="80" y="54" text-anchor="end" fill="#4a5068" font-size="8">n=3</text>
+      <text x="80" y="34" text-anchor="end" fill="#4a5068" font-size="8">n=4</text>
+
+      <!-- Transitions -->
+      <defs>
+        <marker id="arr-p" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><path d="M0,0 L6,2.5 L0,5" fill="#22d3ee"/></marker>
+        <marker id="arr-v" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><path d="M0,0 L6,2.5 L0,5" fill="#a78bfa"/></marker>
+        <marker id="arr-r" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><path d="M0,0 L6,2.5 L0,5" fill="#f87171"/></marker>
+      </defs>
+
+      <line x1="200" y1="78" x2="200" y2="122" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr-p)"/>
+      <text x="210" y="104" fill="#22d3ee" font-size="8">Ly-&alpha;</text>
+
+      <line x1="300" y1="48" x2="300" y2="122" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arr-v)"/>
+      <text x="310" y="90" fill="#a78bfa" font-size="8">Ly-&beta;</text>
+
+      <line x1="400" y1="78" x2="400" y2="52" stroke="#f87171" stroke-width="1.5" marker-end="url(#arr-r)"/>
+      <text x="410" y="68" fill="#f87171" font-size="8">H-&alpha;</text>
+    </svg>
+  </div>
+
+  <h2>Table</h2>
+  <table class="info-table">
+    <thead>
+      <tr><th>Component</th><th>Class</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>.observation</td><td>.obs-head</td><td>Cyan, empirical data</td></tr>
+      <tr><td>.hypothesis</td><td>.obs-head</td><td>Violet, proposed models</td></tr>
+      <tr><td>.law</td><td>.obs-head</td><td>Amber, established principles</td></tr>
+      <tr><td>.readout</td><td>.readout-cell .photon</td><td>Instrument panel grid</td></tr>
+      <tr><td>.spectrum-bar</td><td>.thin</td><td>Full gradient, 4px or 2px</td></tr>
+      <tr><td>.phys-card</td><td>.photon .violet .amber .red</td><td>Color sets top bar</td></tr>
+      <tr><td>.tag</td><td>.t-photon .t-violet etc.</td><td>Bordered monospace pill</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ KEY PATTERNS ============ -->
+<section>
+  <div class="section-num">05 &mdash; Design Principles</div>
+  <h2>Key Patterns</h2>
+
+  <div class="num-list">
+    <div class="num-item">
+      <div class="item-num">1</div>
+      <div>
+        <h4>The Void</h4>
+        <p>Near-black backgrounds (#08090e) with a cool blue-black undertone. Darker than any other system. Like deep space between stars.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">2</div>
+      <div>
+        <h4>Cherenkov Cyan Primary</h4>
+        <p>A single strong primary accent (#22d3ee) named for Cherenkov radiation. Used for h3 headings, observation borders, callout accents, and the photon tag.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">3</div>
+      <div>
+        <h4>Spectrum Secondaries</h4>
+        <p>Five EM-spectrum colors (violet, blue, green, amber, red) plus the spectrum-bar gradient component. Maps naturally to physics domains.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">4</div>
+      <div>
+        <h4>Geometric Space-Age Type</h4>
+        <p>Space Grotesk for headings (tight, geometric, modern), Inter for body (precise, screen-native), Space Mono for data. Negative letter-spacing on h1 for a futuristic feel.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">5</div>
+      <div>
+        <h4>Instrument Readout Panels</h4>
+        <p>The signature unique component. Grid of cells with large colored values, monospace labels, and unit annotations &mdash; like a lab instrument display.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">6</div>
+      <div>
+        <h4>Minimal Radius, No Excess</h4>
+        <p>4px border-radius (barely rounded), no shadows, no hover animations. Clean surfaces and precise borders. The geometry is about measurement, not decoration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <p>Physicist &middot; v0.1 &middot; Observation Log</p>
+  </div>
+</footer>
+
+</body>
+</html>
