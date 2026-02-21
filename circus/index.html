@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circus — Big Top Design System</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+  .swatch {
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .swatch-color { height: 48px; }
+  .swatch-info { padding: 0.5rem 0.65rem; background: var(--surface); }
+  .swatch-info .swatch-name {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--text);
+    margin-bottom: 0.1rem;
+  }
+  .swatch-info .swatch-hex {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--text-faint);
+  }
+
+  .font-sample {
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    margin-bottom: 0.75rem;
+  }
+  .font-sample .sample-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 0.75rem;
+  }
+  .font-sample-heading {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 1.8rem;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .font-sample-body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dim);
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  .font-sample-mono {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+  }
+
+  .file-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .file-link:hover { border-color: var(--gold-dim); }
+  .file-link .file-icon {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+  }
+  .file-link h4 { margin-bottom: 0.2rem; }
+  .file-link p { margin: 0; font-size: 0.88rem; }
+
+  .inline-code {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    background: var(--surface-2);
+    padding: 0.15em 0.4em;
+    color: var(--gold);
+  }
+
+  .text-tier-demo {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    margin: 1.5rem 0;
+  }
+  .text-tier-demo .tier {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+  .text-tier-demo .tier + .tier { border-top: 1px solid var(--border); }
+  .text-tier-demo .tier-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--text-faint);
+    width: 5.5rem;
+    flex-shrink: 0;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="hero-label">Ladies &amp; Gentlemen</div>
+  <h1><span>Circus</span></h1>
+  <p>A big-top design system with velvet-dark backgrounds, crimson and gold accents, bold slab-serif headings, playbill programs, admission tickets, and the dramatic energy of a three-ring show.</p>
+  <div class="hero-version">v0.1 &middot; <a href="template.html" style="color: var(--text-faint); text-decoration: underline; text-underline-offset: 3px;">view starter template</a></div>
+</div>
+
+<div class="container">
+
+<!-- ============ QUICK START ============ -->
+<section>
+  <div class="section-num">Ring 00 &mdash; Quick Start</div>
+  <h2>Getting Started</h2>
+  <p>Copy <span class="inline-code">template.html</span> and <span class="inline-code">tokens.css</span> into your project.</p>
+
+  <div class="card-grid">
+    <a href="template.html" class="file-link">
+      <div class="file-icon">[HTML]</div>
+      <div>
+        <h4>template.html</h4>
+        <p>Starter document with every component</p>
+      </div>
+    </a>
+    <a href="tokens.css" class="file-link">
+      <div class="file-icon">[CSS]</div>
+      <div>
+        <h4>tokens.css</h4>
+        <p>Variables, reset, and all component styles</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ COLORS ============ -->
+<section>
+  <div class="section-num">Ring 01 &mdash; Colour Palette</div>
+  <h2>Velvet Dark</h2>
+  <p>Deep backgrounds with a <strong>subtle warm purple undertone</strong> &mdash; like the inside of a big top at night, lit only by spotlights. Darker and warmer than Vesper&rsquo;s cooler purple.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background: #0c0a10;"></div><div class="swatch-info"><div class="swatch-name">--bg</div><div class="swatch-hex">#0c0a10</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #141118;"></div><div class="swatch-info"><div class="swatch-name">--surface</div><div class="swatch-hex">#141118</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #1e1a24;"></div><div class="swatch-info"><div class="swatch-name">--surface-2</div><div class="swatch-hex">#1e1a24</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #2c2634;"></div><div class="swatch-info"><div class="swatch-name">--border</div><div class="swatch-hex">#2c2634</div></div></div>
+  </div>
+
+  <h3>Text Hierarchy</h3>
+  <div class="text-tier-demo">
+    <div class="tier">
+      <div class="tier-label">--text</div>
+      <div style="color: var(--text); font-weight: 700;">Primary &mdash; headings, act names, emphasis</div>
+    </div>
+    <div class="tier">
+      <div class="tier-label">--text-dim</div>
+      <div style="color: var(--text-dim);">Dim &mdash; body paragraphs, descriptions</div>
+    </div>
+    <div class="tier">
+      <div class="tier-label">--text-faint</div>
+      <div style="color: var(--text-faint);">Faint &mdash; labels, ring numbers, metadata</div>
+    </div>
+  </div>
+
+  <h3>Crimson &amp; Gold</h3>
+  <p>The two headliner accents. <strong>Crimson</strong> for drama, danger, and primary emphasis. <strong>Gold</strong> for prestige, announcements, and secondary emphasis.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background: #e82030;"></div><div class="swatch-info"><div class="swatch-name">--crimson</div><div class="swatch-hex">#e82030</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #8a1420;"></div><div class="swatch-info"><div class="swatch-name">--crimson-dim</div><div class="swatch-hex">#8a1420</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #f0b020;"></div><div class="swatch-info"><div class="swatch-name">--gold</div><div class="swatch-hex">#f0b020</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #8a6614;"></div><div class="swatch-info"><div class="swatch-name">--gold-dim</div><div class="swatch-hex">#8a6614</div></div></div>
+  </div>
+
+  <h3>Supporting Cast</h3>
+  <p>Three accent colours for variety and supporting roles. Each has full, dim, and fill (7% opacity) variants.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background: #2abfb0;"></div><div class="swatch-info"><div class="swatch-name">--teal</div><div class="swatch-hex">#2abfb0</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #4466cc;"></div><div class="swatch-info"><div class="swatch-name">--royal</div><div class="swatch-hex">#4466cc</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #a855cc;"></div><div class="swatch-info"><div class="swatch-name">--violet</div><div class="swatch-hex">#a855cc</div></div></div>
+  </div>
+
+  <p>Tags across the palette:
+    <span class="tag t-crimson">Crimson</span>
+    <span class="tag t-gold">Gold</span>
+    <span class="tag t-teal">Teal</span>
+    <span class="tag t-royal">Royal</span>
+    <span class="tag t-violet">Violet</span>
+  </p>
+</section>
+
+<!-- ============ TYPOGRAPHY ============ -->
+<section>
+  <div class="section-num">Ring 02 &mdash; Typography</div>
+  <h2>Font Stack</h2>
+  <p><strong>Alfa Slab One for headings</strong> (bold slab serif, circus poster energy), <strong>Lato for body</strong> (clean, versatile), <strong>Roboto Mono for labels</strong> (structured data).</p>
+
+  <div class="font-sample">
+    <div class="sample-label">Alfa Slab One &mdash; Headings, ring numbers, display text (400)</div>
+    <div class="font-sample-heading">The quick brown fox jumps over the lazy dog</div>
+  </div>
+
+  <div class="font-sample">
+    <div class="sample-label">Lato &mdash; Body text, descriptions, card content (300&ndash;900)</div>
+    <div class="font-sample-body">The quick brown fox jumps over the lazy dog. Body text uses weight 400 by default. <strong>Strong text uses weight 700</strong> and the cream text color.</div>
+  </div>
+
+  <div class="font-sample">
+    <div class="sample-label">Roboto Mono &mdash; Labels, tags, showtimes, section numbers</div>
+    <div class="font-sample-mono">Ring 01 &mdash; ACROBAT &middot; 8:00 PM &middot; Front Row &middot; ADMIT ONE</div>
+  </div>
+
+  <h3>Type Scale</h3>
+  <table class="info-table">
+    <thead>
+      <tr><th>Element</th><th>Family</th><th>Size</th><th>Weight</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Hero h1</td><td>Alfa Slab One</td><td>clamp(2.8rem, 7vw, 5rem)</td><td>400</td></tr>
+      <tr><td>Section h2</td><td>Alfa Slab One</td><td>1.8rem</td><td>400</td></tr>
+      <tr><td>Subsection h3</td><td>Lato</td><td>0.85rem</td><td>900</td></tr>
+      <tr><td>Card title h4</td><td>Lato</td><td>0.88rem</td><td>700</td></tr>
+      <tr><td>Body</td><td>Lato</td><td>0.92rem</td><td>400</td></tr>
+      <tr><td>Ring number</td><td>Alfa Slab One</td><td>1.3rem</td><td>400</td></tr>
+      <tr><td>Section label</td><td>Roboto Mono</td><td>0.62rem</td><td>400</td></tr>
+      <tr><td>Tag</td><td>Roboto Mono</td><td>0.6rem</td><td>400</td></tr>
+    </tbody>
+  </table>
+
+  <div class="spotlight">
+    <p><strong>Note:</strong> Alfa Slab One has a naturally heavy weight (only ships at 400, which renders like 800+). It&rsquo;s a display font &mdash; use it only for headings, numbers, and short labels.</p>
+  </div>
+</section>
+
+<!-- ============ LAYOUT ============ -->
+<section>
+  <div class="section-num">Ring 03 &mdash; Layout</div>
+  <h2>Structure</h2>
+
+  <div class="card-grid">
+    <div class="act-card crimson">
+      <div class="card-ring">A</div>
+      <h4>Container</h4>
+      <p>Max-width 880px, centered, 2rem horizontal padding.</p>
+    </div>
+    <div class="act-card gold">
+      <div class="card-ring">B</div>
+      <h4>Sections</h4>
+      <p>5rem vertical padding. Solid 1px border-top dividers.</p>
+    </div>
+    <div class="act-card teal">
+      <div class="card-ring">C</div>
+      <h4>Border Radius</h4>
+      <p>Zero everywhere. Sharp poster edges, dramatic and bold.</p>
+    </div>
+    <div class="act-card royal">
+      <div class="card-ring">D</div>
+      <h4>Responsive</h4>
+      <p>Fluid hero type. Cards and playbill reflow at 640px.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPONENTS ============ -->
+<section>
+  <div class="section-num">Ring 04 &mdash; Components</div>
+  <h2>Playbill</h2>
+  <p>The signature component &mdash; a show program listing with time, act name, type, and ring assignment. Act types are colour-coded.</p>
+
+  <div class="playbill">
+    <div class="playbill-header">
+      Tonight's Program
+      <span class="showtime">8:00 PM</span>
+    </div>
+    <div class="act-row">
+      <div class="act-time">8:00</div>
+      <div class="act-name">The Flying Valentinos</div>
+      <div class="act-type acrobat">Acrobat</div>
+      <div class="act-ring">Ring 1</div>
+    </div>
+    <div class="act-row">
+      <div class="act-time">8:30</div>
+      <div class="act-name">Beppo &amp; Friends</div>
+      <div class="act-type comedy">Comedy</div>
+      <div class="act-ring">Ring 2</div>
+    </div>
+    <div class="act-row">
+      <div class="act-time">9:00</div>
+      <div class="act-name">The Great Mystero</div>
+      <div class="act-type magic">Magic</div>
+      <div class="act-ring">Ring 3</div>
+    </div>
+    <div class="act-row">
+      <div class="act-time">9:30</div>
+      <div class="act-name">Bengal Tiger Parade</div>
+      <div class="act-type animal">Animal</div>
+      <div class="act-ring">Ring 1</div>
+    </div>
+  </div>
+
+  <h2>Grand Parade</h2>
+  <p>Sequence of acts connected by &#9733; star separators. Roman numeral markers.</p>
+
+  <div class="parade">
+    <div class="parade-act">
+      <div class="parade-num">I</div>
+      <div class="parade-name">Opening</div>
+      <div class="parade-desc">Fanfare</div>
+    </div>
+    <div class="parade-act">
+      <div class="parade-num">II</div>
+      <div class="parade-name">Acrobats</div>
+      <div class="parade-desc">Aerial</div>
+    </div>
+    <div class="parade-act">
+      <div class="parade-num">III</div>
+      <div class="parade-name">Illusions</div>
+      <div class="parade-desc">Magic</div>
+    </div>
+    <div class="parade-act">
+      <div class="parade-num">IV</div>
+      <div class="parade-name">Finale</div>
+      <div class="parade-desc">Grand</div>
+    </div>
+  </div>
+
+  <h2>Admission Ticket</h2>
+  <p>Punched-hole ticket with show name, seat, and admit badge.</p>
+
+  <div class="admission">
+    <div class="admission-event">
+      <div class="admission-label">Show</div>
+      <div class="admission-name">The Grand Circus</div>
+    </div>
+    <div class="admission-divider">&#9733;</div>
+    <div class="admission-seat">
+      <div class="admission-label">Seat</div>
+      <div class="admission-name">Front Row</div>
+    </div>
+    <div class="admission-admit">ADMIT ONE</div>
+  </div>
+
+  <h2>Spotlight Callouts</h2>
+  <div class="spotlight">
+    <p><strong>Announcement:</strong> Default spotlight with gold accent.</p>
+  </div>
+  <div class="spotlight danger">
+    <p><strong>Danger act:</strong> Crimson for high-risk warnings and cautions.</p>
+  </div>
+  <div class="spotlight ovation">
+    <p><strong>Standing ovation:</strong> Teal for success and positive outcomes.</p>
+  </div>
+  <div class="spotlight note">
+    <p><strong>Program note:</strong> Royal blue for supplementary information.</p>
+  </div>
+
+  <h2>Act Cards</h2>
+  <div class="card-grid">
+    <div class="act-card crimson">
+      <div class="card-ring">I</div>
+      <h4>.act-card.crimson</h4>
+      <p>Primary crimson accent.</p>
+    </div>
+    <div class="act-card gold">
+      <div class="card-ring">II</div>
+      <h4>.act-card.gold</h4>
+      <p>Gold prestige accent.</p>
+    </div>
+    <div class="act-card teal">
+      <div class="card-ring">III</div>
+      <h4>.act-card.teal</h4>
+      <p>Teal supporting accent.</p>
+    </div>
+    <div class="act-card royal">
+      <div class="card-ring">IV</div>
+      <h4>.act-card.royal</h4>
+      <p>Royal blue accent.</p>
+    </div>
+    <div class="act-card violet">
+      <div class="card-ring">V</div>
+      <h4>.act-card.violet</h4>
+      <p>Violet mystery accent.</p>
+    </div>
+  </div>
+
+  <h2>Tent Stripe</h2>
+  <p>Diagonal crimson stripe bar &mdash; the signature decorative divider, evoking the canvas of a circus tent.</p>
+  <div class="tent-stripe"></div>
+  <div class="tent-stripe thin"></div>
+
+  <h2>Table</h2>
+  <table class="info-table">
+    <thead>
+      <tr><th>Component</th><th>Class</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>.playbill</td><td>.act-row .acrobat .comedy .magic .animal</td><td>Show program listing</td></tr>
+      <tr><td>.parade</td><td>.parade-act</td><td>Star-connected sequence</td></tr>
+      <tr><td>.admission</td><td>.admission-event .admission-admit</td><td>Punched-hole ticket</td></tr>
+      <tr><td>.act-card</td><td>.crimson .gold .teal .royal .violet</td><td>Coloured top bar</td></tr>
+      <tr><td>.spotlight</td><td>.danger .ovation .note</td><td>Dramatic callouts</td></tr>
+      <tr><td>.tent-stripe</td><td>.thin</td><td>Diagonal stripe divider</td></tr>
+      <tr><td>.tag</td><td>.t-crimson .t-gold .t-teal .t-royal .t-violet</td><td>Bordered monospace labels</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ KEY PATTERNS ============ -->
+<section>
+  <div class="section-num">Ring 05 &mdash; Design Principles</div>
+  <h2>Key Patterns</h2>
+
+  <div class="num-list">
+    <div class="num-item">
+      <div class="item-num">1</div>
+      <div>
+        <h4>Velvet Dark</h4>
+        <p>Deep backgrounds (#0c0a10) with a subtle warm purple undertone &mdash; like the interior of a big top at night. Warmer than Physicist, darker than Vesper.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">2</div>
+      <div>
+        <h4>Crimson &amp; Gold</h4>
+        <p>A dual-accent system instead of one primary colour. Crimson (#e82030) for drama and emphasis, gold (#f0b020) for prestige and announcements. The classic circus poster palette.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">3</div>
+      <div>
+        <h4>Bold Slab Serif</h4>
+        <p>Alfa Slab One for headings &mdash; the heaviest, most poster-like font in any system. Only one weight (400 that reads as 800+). Used sparingly for maximum impact.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">4</div>
+      <div>
+        <h4>Playbill Program</h4>
+        <p>The signature unique component. A grid-based show program with time, act name, colour-coded type, and ring assignment &mdash; like an evening&rsquo;s programme at the circus.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">5</div>
+      <div>
+        <h4>Tent Stripe</h4>
+        <p>A diagonal crimson-striped CSS gradient bar as a decorative divider. Evokes the canvas panels of a circus tent. Available in 8px and 4px (thin) heights.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">6</div>
+      <div>
+        <h4>Three-Ring Numbering</h4>
+        <p>Sections use &ldquo;Ring 01 &mdash; Name&rdquo; labels. Cards use Roman numerals (I, II, III) for ring assignments. Stars (&#9733;) as decorative separators throughout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tent-stripe"></div>
+<div class="ornament">&#9733; &#9733; &#9733;</div>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <p>Circus &middot; v0.1 &middot; All Rings</p>
+  </div>
+</footer>
+
+</body>
+</html>

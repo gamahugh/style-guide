@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document Title</title>
+<link rel="stylesheet" href="tokens.css">
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="hero-label">Ladies &amp; Gentlemen</div>
+  <h1>Document <span>Title</span></h1>
+  <p>A brief description of what this document covers. Keep it to one or two sentences.</p>
+  <div class="hero-version">Ring 1 &middot; Draft</div>
+</div>
+
+<!-- ============ SECTION ============ -->
+<div class="container">
+<section>
+  <div class="section-num">Ring 01 &mdash; Section Name</div>
+  <h2>Section Heading</h2>
+  <p>Body text goes here. Use <strong>strong tags</strong> for emphasis. Body text renders in the muted lavender color by default.</p>
+
+  <h3>Subsection Heading</h3>
+  <p>Subsections use gold uppercase headings with letter-spacing.</p>
+
+  <!-- Playbill -->
+  <div class="playbill">
+    <div class="playbill-header">
+      Tonight's Program
+      <span class="showtime">8:00 PM</span>
+    </div>
+    <div class="act-row">
+      <div class="act-time">8:00</div>
+      <div class="act-name">Act Name</div>
+      <div class="act-type acrobat">Acrobat</div>
+      <div class="act-ring">Ring 1</div>
+    </div>
+    <div class="act-row">
+      <div class="act-time">8:30</div>
+      <div class="act-name">Act Name</div>
+      <div class="act-type comedy">Comedy</div>
+      <div class="act-ring">Ring 2</div>
+    </div>
+    <div class="act-row">
+      <div class="act-time">9:00</div>
+      <div class="act-name">Act Name</div>
+      <div class="act-type magic">Magic</div>
+      <div class="act-ring">Ring 3</div>
+    </div>
+    <div class="act-row">
+      <div class="act-time">9:30</div>
+      <div class="act-name">Act Name</div>
+      <div class="act-type animal">Animal</div>
+      <div class="act-ring">Ring 1</div>
+    </div>
+  </div>
+
+  <!-- Spotlight variants -->
+  <div class="spotlight">
+    <p><strong>Announcement:</strong> Default spotlight with gold accent.</p>
+  </div>
+  <div class="spotlight danger">
+    <p><strong>Danger act:</strong> Crimson spotlight for high-risk warnings.</p>
+  </div>
+  <div class="spotlight ovation">
+    <p><strong>Standing ovation:</strong> Teal spotlight for success.</p>
+  </div>
+  <div class="spotlight note">
+    <p><strong>Program note:</strong> Royal blue spotlight for information.</p>
+  </div>
+</section>
+
+<!-- ============ PARADE ============ -->
+<section>
+  <div class="section-num">Ring 02 &mdash; Parade</div>
+  <h2>Grand Parade</h2>
+  <p>Use the parade component to show a sequence of acts or events.</p>
+
+  <div class="parade">
+    <div class="parade-act">
+      <div class="parade-num">I</div>
+      <div class="parade-name">Opening</div>
+      <div class="parade-desc">Fanfare</div>
+    </div>
+    <div class="parade-act">
+      <div class="parade-num">II</div>
+      <div class="parade-name">Acrobats</div>
+      <div class="parade-desc">Aerial</div>
+    </div>
+    <div class="parade-act">
+      <div class="parade-num">III</div>
+      <div class="parade-name">Illusions</div>
+      <div class="parade-desc">Magic</div>
+    </div>
+    <div class="parade-act">
+      <div class="parade-num">IV</div>
+      <div class="parade-name">Finale</div>
+      <div class="parade-desc">Grand</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARDS ============ -->
+<section>
+  <div class="section-num">Ring 03 &mdash; Cards</div>
+  <h2>Act Cards</h2>
+
+  <div class="card-grid">
+    <div class="act-card crimson">
+      <div class="card-ring">I</div>
+      <h4>Card Title</h4>
+      <p>Use color classes (crimson, gold, teal, royal, violet).</p>
+    </div>
+    <div class="act-card gold">
+      <div class="card-ring">II</div>
+      <h4>Card Title</h4>
+      <p>Card description text.</p>
+    </div>
+    <div class="act-card teal">
+      <div class="card-ring">III</div>
+      <h4>Card Title</h4>
+      <p>Card description text.</p>
+    </div>
+    <div class="act-card violet">
+      <div class="card-ring">IV</div>
+      <h4>Card Title</h4>
+      <p>Card description text.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ADMISSION ============ -->
+<section>
+  <div class="section-num">Ring 04 &mdash; Admission</div>
+  <h2>Admission Ticket</h2>
+  <p>Inline ticket component with punched-hole edges.</p>
+
+  <div class="admission">
+    <div class="admission-event">
+      <div class="admission-label">Show</div>
+      <div class="admission-name">The Grand Circus</div>
+    </div>
+    <div class="admission-divider">&#9733;</div>
+    <div class="admission-seat">
+      <div class="admission-label">Seat</div>
+      <div class="admission-name">Front Row</div>
+    </div>
+    <div class="admission-admit">ADMIT ONE</div>
+  </div>
+</section>
+
+<!-- ============ NUMBERED LIST ============ -->
+<section>
+  <div class="section-num">Ring 05 &mdash; List</div>
+  <h2>Numbered List</h2>
+
+  <div class="num-list">
+    <div class="num-item">
+      <div class="item-num">1</div>
+      <div>
+        <h4>Item Title</h4>
+        <p>Description text.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">2</div>
+      <div>
+        <h4>Item Title</h4>
+        <p>Description text.</p>
+      </div>
+    </div>
+    <div class="num-item">
+      <div class="item-num">3</div>
+      <div>
+        <h4>Item Title</h4>
+        <p>Description text.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TABLE & TAGS ============ -->
+<section>
+  <div class="section-num">Ring 06 &mdash; Reference</div>
+  <h2>Data Table</h2>
+
+  <table class="info-table">
+    <thead>
+      <tr><th>Act</th><th>Type</th><th>Ring</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Flying Trapeze</td><td>Acrobatics</td><td>Ring 1</td></tr>
+      <tr><td>The Great Zephyr</td><td>Illusion</td><td>Ring 2</td></tr>
+      <tr><td>Cannon Launch</td><td>Stunt</td><td>Ring 3</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Tags</h3>
+  <p>
+    <span class="tag t-crimson">Crimson</span>
+    <span class="tag t-gold">Gold</span>
+    <span class="tag t-teal">Teal</span>
+    <span class="tag t-royal">Royal</span>
+    <span class="tag t-violet">Violet</span>
+  </p>
+</section>
+
+<!-- ============ ORNAMENTS ============ -->
+<div class="tent-stripe"></div>
+<div class="ornament">&#9733; &#9733; &#9733;</div>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <p>Document Title &middot; Ring 1 &middot; All Acts</p>
+  </div>
+</footer>
+
+</body>
+</html>

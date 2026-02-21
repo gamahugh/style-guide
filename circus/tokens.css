@@ -1,0 +1,690 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Roboto+Mono:wght@400;500;600&display=swap');
+
+/* ==============================
+   Circus — Design Tokens
+   ============================== */
+
+:root {
+  /* Velvet dark */
+  --bg: #0c0a10;
+  --surface: #141118;
+  --surface-2: #1e1a24;
+  --border: #2c2634;
+  --border-light: #3c3448;
+
+  /* Text — warm cream */
+  --text: #f0e6d8;
+  --text-dim: #908498;
+  --text-faint: #584c64;
+
+  /* Crimson — primary */
+  --crimson: #e82030;
+  --crimson-dim: #8a1420;
+  --crimson-fill: rgba(232, 32, 48, 0.07);
+
+  /* Gold — secondary */
+  --gold: #f0b020;
+  --gold-dim: #8a6614;
+  --gold-fill: rgba(240, 176, 32, 0.07);
+
+  /* Accent palette */
+  --teal: #2abfb0;
+  --teal-dim: #186860;
+  --teal-fill: rgba(42, 191, 176, 0.07);
+
+  --royal: #4466cc;
+  --royal-dim: #2a3f7a;
+  --royal-fill: rgba(68, 102, 204, 0.07);
+
+  --violet: #a855cc;
+  --violet-dim: #603078;
+  --violet-fill: rgba(168, 85, 204, 0.07);
+}
+
+/* ==============================
+   Global Reset & Defaults
+   ============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ==============================
+   Typography
+   ============================== */
+
+h1, h2 {
+  font-family: 'Alfa Slab One', serif;
+  font-weight: 400;
+  color: var(--text);
+}
+
+h1 {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: 1.8rem;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  color: var(--crimson);
+}
+
+h3 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+  margin-top: 2.5rem;
+  color: var(--gold);
+}
+
+h4 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+p {
+  color: var(--text-dim);
+  margin-bottom: 1rem;
+}
+
+p strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ==============================
+   Layout
+   ============================== */
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+/* ==============================
+   Labels
+   ============================== */
+
+.section-num {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.75rem;
+}
+
+.hero-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 2rem;
+}
+
+.diagram-label {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 1.25rem;
+}
+
+/* ==============================
+   Hero
+   ============================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(232, 32, 48, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(240, 176, 32, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero h1 {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero p {
+  max-width: 520px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-dim);
+  position: relative;
+}
+
+.hero-version {
+  margin-top: 3rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--text-faint);
+  letter-spacing: 0.12em;
+  position: relative;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1, .hero p, .hero-label, .hero-version {
+  animation: fadeUp 0.9s ease-out both;
+}
+.hero-label   { animation-delay: 0s; }
+.hero h1      { animation-delay: 0.2s; }
+.hero p       { animation-delay: 0.4s; }
+.hero-version { animation-delay: 0.6s; }
+
+/* ==============================
+   Playbill (Program)
+   ============================== */
+
+.playbill {
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.playbill-header {
+  background: var(--surface-2);
+  padding: 0.7rem 1.25rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playbill-header .showtime {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+}
+
+.act-row {
+  display: grid;
+  grid-template-columns: 70px 1fr 120px 80px;
+  padding: 0.75rem 1.25rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 640px) {
+  .act-row { grid-template-columns: 60px 1fr 90px; }
+  .act-row .act-ring { display: none; }
+}
+
+.act-row .act-time {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.act-row .act-name {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.act-row .act-type {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.act-row .act-ring {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  text-align: right;
+}
+
+.act-row .act-type.acrobat { color: var(--crimson); }
+.act-row .act-type.comedy  { color: var(--gold); }
+.act-row .act-type.magic   { color: var(--violet); }
+.act-row .act-type.animal  { color: var(--teal); }
+
+/* ==============================
+   Act Cards (2-column grid)
+   ============================== */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 640px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+.act-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.act-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.act-card.crimson::before { background: var(--crimson); }
+.act-card.gold::before    { background: var(--gold); }
+.act-card.teal::before    { background: var(--teal); }
+.act-card.royal::before   { background: var(--royal); }
+.act-card.violet::before  { background: var(--violet); }
+
+.act-card .card-ring {
+  font-family: 'Alfa Slab One', serif;
+  font-size: 1.3rem;
+  color: var(--text-faint);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.act-card h4 { margin-bottom: 0.4rem; }
+
+.act-card p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+  margin-bottom: 0;
+}
+
+/* ==============================
+   Parade (Pipeline)
+   ============================== */
+
+.parade {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+.parade-act {
+  flex: 1;
+  min-width: 130px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  position: relative;
+}
+
+.parade-act + .parade-act { border-left: none; }
+
+.parade-act::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--crimson);
+}
+
+.parade-act + .parade-act::after {
+  content: '★';
+  position: absolute;
+  left: -1px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.6rem;
+  color: var(--gold-dim);
+  z-index: 1;
+  background: var(--bg);
+  padding: 0.2rem;
+  line-height: 1;
+}
+
+.parade-act .parade-num {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-faint);
+  margin-bottom: 0.25rem;
+}
+
+.parade-act .parade-name {
+  font-family: 'Alfa Slab One', serif;
+  font-size: 0.95rem;
+  color: var(--crimson);
+  margin-bottom: 0.15rem;
+}
+
+.parade-act .parade-desc {
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  line-height: 1.4;
+}
+
+/* ==============================
+   Numbered List
+   ============================== */
+
+.num-list {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.num-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.num-item + .num-item { border-top: none; }
+
+.num-item .item-num {
+  font-family: 'Alfa Slab One', serif;
+  font-size: 1.4rem;
+  color: var(--crimson-dim);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 2.25rem;
+  text-align: center;
+}
+
+.num-item h4 { margin-bottom: 0.3rem; }
+
+.num-item p {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==============================
+   Spotlight (Callout)
+   ============================== */
+
+.spotlight {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  background: var(--gold-fill);
+}
+
+.spotlight.danger {
+  border-left-color: var(--crimson);
+  background: var(--crimson-fill);
+}
+
+.spotlight.ovation {
+  border-left-color: var(--teal);
+  background: var(--teal-fill);
+}
+
+.spotlight.note {
+  border-left-color: var(--royal);
+  background: var(--royal-fill);
+}
+
+.spotlight p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-dim);
+}
+
+.spotlight strong { color: var(--text); }
+
+/* ==============================
+   Admission (Ticket)
+   ============================== */
+
+.admission {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  margin: 0.5rem 0;
+  position: relative;
+}
+
+.admission::before,
+.admission::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--bg);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.admission::before { left: -7px; }
+.admission::after  { right: -7px; }
+
+.admission-event,
+.admission-seat {
+  text-align: center;
+}
+
+.admission-label {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.15rem;
+}
+
+.admission-name {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+.admission-divider {
+  font-size: 0.8rem;
+  color: var(--gold-dim);
+}
+
+.admission-admit {
+  font-family: 'Alfa Slab One', serif;
+  font-size: 0.7rem;
+  color: var(--crimson);
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+  letter-spacing: 0.05em;
+}
+
+/* ==============================
+   Tags
+   ============================== */
+
+.tag {
+  display: inline-block;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2em 0.6em;
+  border: 1px solid;
+}
+
+.tag.t-crimson { background: var(--crimson-fill); color: var(--crimson); border-color: var(--crimson-dim); }
+.tag.t-gold    { background: var(--gold-fill);    color: var(--gold);    border-color: var(--gold-dim); }
+.tag.t-teal    { background: var(--teal-fill);    color: var(--teal);    border-color: var(--teal-dim); }
+.tag.t-royal   { background: var(--royal-fill);   color: var(--royal);   border-color: var(--royal-dim); }
+.tag.t-violet  { background: var(--violet-fill);  color: var(--violet);  border-color: var(--violet-dim); }
+
+/* ==============================
+   Tables
+   ============================== */
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.88rem;
+}
+
+.info-table th {
+  text-align: left;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding: 0.6rem 1rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.info-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+  vertical-align: top;
+}
+
+.info-table td:first-child {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ==============================
+   Tent Stripe
+   ============================== */
+
+.tent-stripe {
+  height: 8px;
+  margin: 3rem 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--crimson) 0px,
+    var(--crimson) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+.tent-stripe.thin {
+  height: 4px;
+}
+
+/* ==============================
+   Ornament (star divider)
+   ============================== */
+
+.ornament {
+  text-align: center;
+  margin: 3rem 0;
+  color: var(--gold-dim);
+  font-size: 0.9rem;
+  letter-spacing: 0.5em;
+}
+
+/* ==============================
+   Diagram Container
+   ============================== */
+
+.diagram-wrap {
+  margin: 2.5rem 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.diagram-wrap.full-bleed {
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+svg text {
+  font-family: 'Lato', sans-serif;
+}
+
+/* ==============================
+   Footer
+   ============================== */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+footer p {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--text-faint);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
